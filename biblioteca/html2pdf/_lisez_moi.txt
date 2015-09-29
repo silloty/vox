@@ -1,0 +1,96 @@
+*******************************************************
+** Ce programme est distribué sous la licence GPL,   **
+** reportez-vous au fichier _GPL.txt ou à            **
+** http://www.gnu.org/licenses/licenses.fr.html#GPL  **
+** pour en savoir plus.                              **
+**                                                   **
+**  Copyright 2000-2008 par Laurent Minguet          **
+*******************************************************
+******************
+* HTML2PDF v3.08 *
+******************
+   (24/06/2008)
+
+ATTENTION :
+----------
+ - les unités ont été revues et corrigés depuis la version 2.70, vous devrez peut-etre corriger vos HTML.
+   Unités mm, in, pt, px réellement reproduites pour toutes les propriétés (dont font-size) tel que 25.4mm = 1in, 72pt = 1in, 96px = 1in
+   
+ - les propriétés de la balise PAGE ont été modifiées depuis la version 3.04 afin de rajouter plus d'options, regardez l'exemple 7
+ 
+ - toutes les balises ne sont pas encore codées (comme par exemple UL, LI, OL, DIV, P....)
+ 
+Utilisation :
+------------
+ - regardez les exemples fournis pour voir le fonctionnement.
+ 
+ - il est TRES IMPORTANT de fournir du HTML 4.01 valide au convertisseur, mais seulement ce que contient le <body>
+       
+ - pour les borders : il est conseillé qu'ils soient au format "solid 1mm #000000"
+
+ - pour les paddings : ils ne sont applicables qu'aux balises table, th, td
+
+ - la balise <page></page> a été rajoutée. CF Exemple 7.
+   Elle permet de définir l'orientation, les marges top et bottom, l'image de fond d'une page, sa taille et position, le footer.
+ 
+ - les balises <page_header></page_header> et <page_footer></page_footer> ont été rajoutées, CF Exemple 3
+  
+ - la balise <nobreak></nobreak> a été rajoutée afin de forcer l'affichage d'une partie sur une même page.
+   Si cette partie ne rentre pas dans le reste de la page, un saut de page est effectué avant.
+ 
+ - la liste des balises HTML reconnues se trouve dans le fichier "_balises_html.xls"
+
+Modification :
+-------------
+ 3.08 : version opérationnelle de page_header, ajout de page_footer, correction des borders des tableaux
+ 3.07 : correction de l'interpretation de cellspacing, amélioration de la balise page_header
+ 3.06 : première gestion de la balise page_header, correction des dimensions des tableaux
+ 3.05 : ajout de la propriété vertical-align, ajout de la gestion des fichiers de langue
+ 3.04 : correction du saut de page automatique pour les tableaux. Ajout de propriétés à la balise PAGE
+ 3.03 : correction de bugs au niveau de la gestion des images PHP par FPDF, meilleure gestion des erreurs
+ 3.02 : ajout de la gestion des noms des couleurs, correction de la gestion des images générées par php, correction de quelques bugs
+ 3.01 : correction de quelques bugs, ajout d'une protection pour les balises non existantes
+ 3.00 : refont totale du calcul des tableaux. Prise en compte des colspan et rowspan
+ 2.85 : ajout de la propriété cellspacing, nouvelle gestion des padding des tableaux (identique à l'html)
+ 2.80 : ajout des types de border dotted et dasheds
+ 2.75 : ajout des top, left, right, bottom pour padding et border
+ 2.70 : correction de la balise HR, ajout de la propriété padding pour les table, th, td
+        correction des dimensions, les unités px, mm, in, pt sont enfin réellement reproduites, correction de font-size, border, ...
+        ajout d'une propriété à la balise page : footer
+        correction dans l'affichage et le calcul des tables
+ 2.55 : vérification de la validité du code (ouverture / fermeture) - ajout des unités mm, in, pt
+ 2.50 : correction de nobreak, des marges, ajout de nombreuses balises
+ 2.40 : refonte totale de l'identification des styles CSS. Les héritages marchent.
+ 2.39 : corrections diverses, ajout de certaines propriétés (bgcolor, ...)
+ 2.38 : meilleur identification des propriétés border et color
+ 2.37 : nombreuses corrections : balise A, couleur de fond, retour à la ligne, gestion des images dans un texte, ...
+ 2.36 : ajout des balises STRONG, EM
+ 2.35 : amélioration de la gestion des feuilles de style
+ 2.31 : correction de quelques bugs
+ 2.30 : première version opérationnel des feuilles de style
+ 2.25 : ajout de la balise LINK pour le type text/css
+ 2.20 : premier jet de la gestion des feuilles de style, ajout de la balise STYLE
+ 2.15 : n'interprète plus l'HTML en commentaire <!-- -->
+ 2.10 : ajout des balises H1 -> H6
+ 2.01 : correction de quelques bugs
+ 2.00 : première version diffusée			
+
+Aide et Support :
+----------------
+ pour toutes questions et rapport de bug, merci d'utiliser exclusivement le lien de support ci-dessous.
+ Je ne répondrais à aucune question en dehors, afin que tout le monde puisse profiter des réponses.
+
+Informations :
+-------------
+ Programmation en PHP4
+
+ Programmeur :	Spipu
+		email   : webmaster@spipu.net
+		site    : http://spipu.net/
+		support : http://www.yaronet.com/posts.php?s=110701
+		
+Remerciement :
+-------------
+ * Olivier PLATHEY pour sa librairie Fpdf (http://www.fpdf.org/)
+ * yAronet pour l'hebergement du forum de support
+ * toutes les personnes qui m'ont aidé à développer cet librairie, et à traduire les différents textes

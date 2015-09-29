@@ -1,0 +1,33 @@
+-----------------------------------------------------------
+VOX - Sistema de OUVIDORIA
+
+@ Desenvolvedor: Silas Antônio Cereda da Silva
+@ Email: silas.silva@ifmg.edu.br
+@ Última Modificação:15/12/2010
+
+Instituto Federal Minas Gerais - Campus Bambuí
+-----------------------------------------------------------
+
+>>OBJETIVO DO SISTEMA
+Sistema destinado a controlar e organizar manifestações destinadas a ouvidoria, 
+além de gerar relatórios e gráficos para acompanhamento.
+
+
+>>INSTALAÇÃO
+1   - Na classe config.cls
+	- Modificar o caminho raiz (https://dev.cefetbambui.edu.br/desenvolvimento/ouvidoria)
+	- Configuração do Banco de Dados
+	- Alterar o email do administrador (Email para onde são enviados os erros do sistema)
+	- Alterar o email da Ouvidora (Email de onde são enviadas as respostas)
+2   - Na classe manifestação (modelo/manifestacao.cls) há vários textos que são enviados ao manifestante ou ao departamento no email.
+Estes textos deverão ser personalizados de acordo com a necessidade.
+
+
+------------------------------------------------------------
+
+PHP + PosgreeSQL
+Gerência de Tecnologia da Informação - IFMG Campus Bambuí
+	
+
+	
+

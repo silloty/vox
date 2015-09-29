@@ -1,0 +1,306 @@
+------------------------------------------------------------------------
+r66 | ronaldo | 2012-01-12 16:00:00 -0300 (Qui, 12 Jan 2012) | 1 line
+
+correcao na geracao dos relatorios
+------------------------------------------------------------------------
+r65 | silas | 2011-08-05 14:36:09 -0300 (Sex, 05 Ago 2011) | 1 line
+
+Inserção de campo data com hora:minuto:segundos na tabela do banco e na sql de inserção
+------------------------------------------------------------------------
+r64 | silas | 2011-07-04 10:43:21 -0300 (Seg, 04 Jul 2011) | 1 line
+
+problemas grid versões novas do FF
+------------------------------------------------------------------------
+r63 | silas | 2011-03-18 09:40:38 -0300 (Sex, 18 Mar 2011) | 1 line
+
+Correção envio email / Validação de email
+------------------------------------------------------------------------
+r62 | silas | 2011-03-14 09:23:36 -0300 (Seg, 14 Mar 2011) | 1 line
+
+
+------------------------------------------------------------------------
+r61 | silas | 2011-02-21 13:33:41 -0300 (Seg, 21 Fev 2011) | 2 lines
+
+Alteração na configuração para envio de email
+Foi atribuido um email vox.bambui para realizar todos os envios referentes ao sistema
+------------------------------------------------------------------------
+r60 | silas | 2010-12-15 08:23:15 -0200 (Qua, 15 Dez 2010) | 1 line
+
+Alterações para disponibilização do sistema ao IFTO
+------------------------------------------------------------------------
+r59 | silas | 2010-12-06 09:06:26 -0200 (Seg, 06 Dez 2010) | 1 line
+
+Mascaramento no Envio de email e criação de um metodo para enviar o erro no email para o administrador do sistema
+------------------------------------------------------------------------
+r58 | silas | 2010-04-15 10:17:49 -0300 (Qui, 15 Abr 2010) | 2 lines
+
+Correção de Erro na alteração de status da manifestação fechada
+
+------------------------------------------------------------------------
+r57 | silas | 2010-03-19 10:36:23 -0300 (Sex, 19 Mar 2010) | 2 lines
+
+Atualização Email Administrador
+Adiocionada função para permitir o envio de mensagem com caracteres especias
+------------------------------------------------------------------------
+r56 | silas | 2010-03-18 10:23:43 -0300 (Qui, 18 Mar 2010) | 1 line
+
+Atualização da biblioteca adodb
+------------------------------------------------------------------------
+r55 | silas | 2010-03-02 14:08:16 -0300 (Ter, 02 Mar 2010) | 3 lines
+
+Criação de um botão para reenviar o email a um departamento sem necessistar registrar um novo andamento_detalhes.exe.php
+
+Correção de bug com envio do feedback
+------------------------------------------------------------------------
+r54 | silas | 2010-03-01 10:23:43 -0300 (Seg, 01 Mar 2010) | 2 lines
+
+Alteração na forma de envio de email.gti.php
+Agora é feita a verificação do envio
+------------------------------------------------------------------------
+r53 | silas | 2010-02-18 07:45:39 -0200 (Qui, 18 Fev 2010) | 1 line
+
+Correçao do grafico de porcentagens
+------------------------------------------------------------------------
+r52 | silas | 2010-02-11 08:57:27 -0200 (Qui, 11 Fev 2010) | 3 lines
+
+Alteração em um grafico do relatorio de atividades para adequação ao numero de tipos
+
+Acréscimo de uma opção para alteração do tipo de manifestação em manifestações fechadas
+------------------------------------------------------------------------
+r51 | silas | 2010-02-02 14:56:54 -0200 (Ter, 02 Fev 2010) | 2 lines
+
+Retirada do gráfico de porcentagem do relatório de atividades...
+Problema encontrado quando há um número grande de manifestações
+------------------------------------------------------------------------
+r50 | silas | 2009-12-22 14:11:51 -0200 (Ter, 22 Dez 2009) | 1 line
+
+Retirada a visualização do email que aparecia para leise em manifestações anônimas
+------------------------------------------------------------------------
+r49 | silas | 2009-12-22 10:48:15 -0200 (Ter, 22 Dez 2009) | 5 lines
+
+Alteração no modo manifestando
+Não ocorre mais a perda de dados dos campos qdo há erro de processamento do formulário
+Foi utilizado sessão
+close #260
+
+------------------------------------------------------------------------
+r48 | silas | 2009-12-18 16:51:35 -0200 (Sex, 18 Dez 2009) | 1 line
+
+Alterações no envio do feedback do usuario
+------------------------------------------------------------------------
+r47 | silas | 2009-12-16 16:59:11 -0200 (Qua, 16 Dez 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r46 | silas | 2009-09-22 15:38:06 -0300 (Ter, 22 Set 2009) | 1 line
+
+Correção em envio de manifestações
+------------------------------------------------------------------------
+r45 | silas | 2009-09-22 13:55:31 -0300 (Ter, 22 Set 2009) | 1 line
+
+correção com o link da index.php
+------------------------------------------------------------------------
+r44 | silas | 2009-09-18 15:26:47 -0300 (Sex, 18 Set 2009) | 1 line
+
+Correção de erro que acontecia ao finalizar uma manifestação que foi reaberta
+------------------------------------------------------------------------
+r43 | silas | 2009-09-16 16:15:12 -0300 (Qua, 16 Set 2009) | 2 lines
+
+Alteração na classe de conexao
+Alteração para evitar problemas com sessão
+------------------------------------------------------------------------
+r42 | silas | 2009-07-09 09:20:44 -0300 (Qui, 09 Jul 2009) | 1 line
+
+Versão Final pronta pra atualização
+------------------------------------------------------------------------
+r41 | silas | 2009-07-09 09:16:56 -0300 (Qui, 09 Jul 2009) | 2 lines
+
+Versão Atualizada com filtro de manifestações e departamentos
+
+------------------------------------------------------------------------
+r40 | silas | 2009-07-08 13:56:40 -0300 (Qua, 08 Jul 2009) | 1 line
+
+versão atualizada com 6 modificações pedidas pela Leise
+------------------------------------------------------------------------
+r39 | silas | 2009-07-06 09:15:21 -0300 (Seg, 06 Jul 2009) | 3 lines
+
+Primeira funcionalidade acrescentada
+
+No campo "tipos de manifestação", além das opções elogio, sugestão, reclamação e denúncia, acrescentar mensagem improcedente, mensagem improvável, e mensagem não pertinente. IMPORTANTE: ESSAS 3 ULTIMAS OPÇOES SÓ A OUVIDORA PODERÁ TER ACESSO. QUANDO O MANIFESTANTE FOR DIGITAR SUA MENSAGEM, APARECERÁ APENAS AS 4 PRIMEIRAS OPÇOES.
+------------------------------------------------------------------------
+r38 | silas | 2009-04-13 09:42:24 -0300 (Seg, 13 Abr 2009) | 1 line
+
+Problema com modo manifestando utilizando IE resolvido
+------------------------------------------------------------------------
+r37 | silas | 2009-04-08 14:11:12 -0300 (Qua, 08 Abr 2009) | 1 line
+
+Correção de bug
+------------------------------------------------------------------------
+r36 | silas | 2009-04-03 09:07:34 -0300 (Sex, 03 Abr 2009) | 2 lines
+
+Acréscimo de uma coluna no grid de manifestações fechadas para informar se a manifestação teve ou não um feeback
+Mudança na tela de ajuda referente a manifestações fechadas
+------------------------------------------------------------------------
+r35 | silas | 2009-04-02 08:24:42 -0300 (Qui, 02 Abr 2009) | 2 lines
+
+Versão atualizada
+Correção de pequenos erros
+------------------------------------------------------------------------
+r34 | silas | 2009-04-01 15:09:19 -0300 (Qua, 01 Abr 2009) | 3 lines
+
+Versão pronta pra atualização
+Correçao bug na classe andamento_detalhes.frm
+
+------------------------------------------------------------------------
+r33 | silas | 2009-04-01 14:10:21 -0300 (Qua, 01 Abr 2009) | 3 lines
+
+Modificações nas telas de detalhamento nos drop downs a pedido da Leise
+Criação de um capycha por motivo de antispam
+
+------------------------------------------------------------------------
+r32 | silas | 2009-03-30 08:39:25 -0300 (Seg, 30 Mar 2009) | 1 line
+
+Versão estavel... botões de excluir dos formulários que não podem haver exclusões foram comentados
+------------------------------------------------------------------------
+r31 | silas | 2009-03-26 17:07:22 -0300 (Qui, 26 Mar 2009) | 3 lines
+
+Revisão 03
+Modificações nas classe que dependiam das classe da pasta externo.
+Aplicação de CSS nos labels do modo manifestando
+------------------------------------------------------------------------
+r30 | silas | 2009-03-26 15:25:13 -0300 (Qui, 26 Mar 2009) | 3 lines
+
+Devido a não resolver o problema com permissão as classe que estavam na pasta externo voltaram para a pasta visao.
+
+Botões excluir das classes departamento.frm, clientela.frm e tipo.frm foram retirados e as telas de ajudas referentes a estas classe foram modificadas
+------------------------------------------------------------------------
+r29 | silas | 2009-03-25 17:08:21 -0300 (Qua, 25 Mar 2009) | 3 lines
+
+Revisão 02
+Botões excluir das classe departamento.frm, clientela.frm e status.frm foram ocultos
+relatorio_manifestacoes ordenado por data_criacao
+------------------------------------------------------------------------
+r28 | silas | 2009-03-24 16:23:32 -0300 (Ter, 24 Mar 2009) | 4 lines
+
+Revisão 01
+arquivos de acesso externo transferidos para a pasta visao/externo.
+Modificação na tela de manifestação
+
+------------------------------------------------------------------------
+r27 | silas | 2009-03-23 10:22:06 -0300 (Seg, 23 Mar 2009) | 1 line
+
+Relatório de Atividades Reformulado - Sistema Finalizado
+------------------------------------------------------------------------
+r26 | silas | 2009-03-20 16:25:51 -0300 (Sex, 20 Mar 2009) | 1 line
+
+Finalizado - relatório atividades
+------------------------------------------------------------------------
+r25 | silas | 2009-03-20 14:37:17 -0300 (Sex, 20 Mar 2009) | 2 lines
+
+Versão 25 - Pronto para utilização
+Não está emitindo relatório de atividades devido a conflito de informações com dados do banco antigo
+------------------------------------------------------------------------
+r24 | silas | 2009-03-18 17:03:32 -0300 (Qua, 18 Mar 2009) | 1 line
+
+Finalizção da central de ajuda
+------------------------------------------------------------------------
+r23 | silas | 2009-03-17 17:00:12 -0300 (Ter, 17 Mar 2009) | 3 lines
+
+Criação da primeira tela de ajuda.. 
+Criação de um menu com estilo css na tela de ajuda
+
+------------------------------------------------------------------------
+r22 | silas | 2009-03-16 17:11:22 -0300 (Seg, 16 Mar 2009) | 3 lines
+
+recriação do relatorio de manifestações em HTML
+inicio da criação do menu de ajuda
+inserção de imagens para serem inseridas no menu de ajuda
+------------------------------------------------------------------------
+r21 | silas | 2009-03-12 17:10:28 -0300 (Qui, 12 Mar 2009) | 1 line
+
+Finalização do relatorio de atividades.. resta apenas ajuste com aparência
+------------------------------------------------------------------------
+r20 | silas | 2009-03-11 17:08:50 -0300 (Qua, 11 Mar 2009) | 1 line
+
+Criacao da funcao para verificar os tipos de manifestacoes que cada departamento recebeu durante um periodo
+------------------------------------------------------------------------
+r19 | silas | 2009-03-10 16:55:26 -0300 (Ter, 10 Mar 2009) | 1 line
+
+Geração dos graficos de clientela, de tipos de manifestações, de status das manifestações e de formas de identificação
+------------------------------------------------------------------------
+r18 | silas | 2009-03-09 17:02:38 -0300 (Seg, 09 Mar 2009) | 2 lines
+
+Criação de um dos gráficos com dados corretos sobre as manifestações
+Criação de funções para descobrir quantidades de manifestações e de tipos de manifestações por período
+------------------------------------------------------------------------
+r17 | silas | 2009-03-06 16:49:34 -0300 (Sex, 06 Mar 2009) | 1 line
+
+Inicio da criação de graficos na pagina do relatorio_atividades.frm.php
+------------------------------------------------------------------------
+r16 | silas | 2009-03-05 16:59:57 -0300 (Qui, 05 Mar 2009) | 1 line
+
+Criação dos layouts das telas de relatórios em html
+------------------------------------------------------------------------
+r15 | silas | 2009-03-04 16:26:36 -0300 (Qua, 04 Mar 2009) | 2 lines
+
+relarrio de manifestações esta criado
+resta apena corrigir o problema com espaços
+------------------------------------------------------------------------
+r14 | ciniro | 2009-02-27 11:34:01 -0300 (Sex, 27 Fev 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r13 | silas | 2009-02-27 07:52:07 -0300 (Sex, 27 Fev 2009) | 1 line
+
+correção de bugs e erros
+------------------------------------------------------------------------
+r12 | ciniro | 2009-02-19 18:20:29 -0300 (Qui, 19 Fev 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r11 | silas | 2009-02-18 17:04:06 -0300 (Qua, 18 Fev 2009) | 2 lines
+
+criação da tela de resposta do departamento
+quase finalizada a tela de manifestcoes abertas so falta enviar email pro usuario quando clicar em finalizar
+------------------------------------------------------------------------
+r10 | ciniro | 2009-02-18 16:09:09 -0300 (Qua, 18 Fev 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r9 | silas | 2009-02-17 17:12:17 -0300 (Ter, 17 Fev 2009) | 2 lines
+
+Inserção de imagens na tela de detalhes de manifestcoes abertas
+Criacao da tela de detalhamento ainda não finalizada
+------------------------------------------------------------------------
+r8 | silas | 2009-02-13 16:58:01 -0200 (Sex, 13 Fev 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r7 | silas | 2009-02-13 07:40:26 -0200 (Sex, 13 Fev 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r6 | ciniro | 2009-02-11 17:48:00 -0200 (Qua, 11 Fev 2009) | 1 line
+
+implementacao incompleta da tela de manifestacao em modo manifestando
+------------------------------------------------------------------------
+r5 | silas | 2009-02-10 17:08:25 -0200 (Ter, 10 Fev 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r4 | wanderson | 2009-02-10 11:48:22 -0200 (Ter, 10 Fev 2009) | 1 line
+
+inclusão de imagens: wanderson 
+------------------------------------------------------------------------
+r3 | wanderson | 2009-02-10 11:35:46 -0200 (Ter, 10 Fev 2009) | 1 line
+
+primeira versão vox: wanderson 
+------------------------------------------------------------------------
+r2 | silas | 2009-02-04 16:17:04 -0200 (Qua, 04 Fev 2009) | 1 line
+
+
+------------------------------------------------------------------------
+r1 | root | 2009-01-23 17:15:49 -0200 (Sex, 23 Jan 2009) | 1 line
+
+Esquema Inicial
+------------------------------------------------------------------------

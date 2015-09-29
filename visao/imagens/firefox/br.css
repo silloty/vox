@@ -1,0 +1,130 @@
+#brEditPage {
+   position:absolute;
+   left:0;
+   width: 95%;
+   margin: 0px;
+   opacity: 0.7;
+
+   padding: 0;
+   padding-bottom: 0.6em;
+   padding-left: 2%;
+   padding-right: 2%;
+
+   background-color: #eeeae4;
+
+   border-color: gray;
+   border-style: solid;
+   border-width: 0px;
+   border-top-width: 8px;
+   border-bottom-width: 8px;
+}
+
+#brEditPage h1 {
+   padding: 0;
+   font-size: 1.2em;
+}
+
+#brEditPage textarea {
+   width: 100%;
+   height: 9em;
+}
+
+#brEditPageSubmit {
+   float: left;
+}
+
+#brEditPageStat {
+   position:absolute;
+   z-index: 500;
+   top: 64px;
+   left: 64px;
+   width: auto;
+   margin: 0px;
+   padding: 2em;
+
+   background-color: #FFFFCC;
+   opacity: 0.8;
+
+   border-color: #d9b87f;
+   border-style: solid;
+   border-width: 4px;
+
+   font-weight: bold;
+   font-size: 1.5em;
+   text-align:right
+}
+
+/*
+a img {
+  border-style: none !important;
+}
+*/
+kbd {
+  padding: 0px 1px 0px 1px !important;
+  border-width: 1px 2px 2px 1px !important;
+  border-style: solid !important;
+  background: #faf6f6  !important;
+  color: #000  !important;
+  border-color:  #edd #baa #baa #eed  !important;
+}
+
+xcode {
+    background: #eeeeee  !important;
+    color: #000  !important;
+}
+
+.tb-server-summary {
+    background-color:#eeeeee;
+    padding-top:0.1em;
+    padding-bottom:1em;
+    padding-left:2em;
+    padding-right:2em;
+}
+code {
+    /*background-color:#f7f7f7 !important;*/
+    border:1px dotted #cccccc !important;
+    padding-left:2px;
+    padding-right:2px;
+}
+
+
+
+.adsense-2, .adsense-5 {
+    float:left;
+    margin-top:0em;
+    margin-bottom:2em;
+    margin-right:1em;
+}
+
+.adsense-1, .adsense-4 {
+    margin-top:0em;
+    margin-bottom:2em;
+}
+
+.adsense-3, .adsense-6 {
+    float:right;
+    margin-top:0em;
+    margin-left:1em;
+}
+
+#banner {
+	background-color: #ffffcc;
+	border: #eeeeee solid 1px;
+	/* text-align: center;
+	padding: 0em; */
+	-moz-border-radius: 0.6em;
+	margin: 0em;
+	margin-bottom: 1em;
+}
+#banner:hover {
+	background-color: yellow;
+}
+
+#banner a {
+	display:block;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 1em;
+	padding-bottom: 0.7em;
+	text-decoration:none;
+}

@@ -1,0 +1,63 @@
+#downloadText {
+  font-size: larger;
+}
+
+#configParent, #othersystems, #sysreq {
+  font-size: smaller;
+}
+
+h2, h3, hr {
+  clear: none;
+}
+
+.rhs {
+  float: right;
+  width: 180px;
+  margin-left: 20px;
+  padding: 12px;
+  font-size: 90%;
+}
+
+.rhs h3 {
+  background-color: #EFEFEF;
+  padding: 3px;
+  margin-top: 0px;
+}
+
+.rhs ul {
+  padding: 5px;
+}
+
+#new-features {
+  list-style-image: url(../../images/w1.gif);
+  margin-left: 20px;
+}
+
+#quotes {
+  margin-top: 0px;
+}
+
+dd {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+#odometer {
+  margin-left: 40px; 
+}
+
+.quotebox {
+  border-top: 3px double #CCCCCC;
+  border-bottom: 3px double #CCCCCC;
+  padding: 1em 2em 1em 3em;
+  max-width: 400px;
+}
+
+.quotebox dt 
+{
+  margin-bottom: 1em;
+}
+
+.quotebox dd {
+  font-style: italic;
+}

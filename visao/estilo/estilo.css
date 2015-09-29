@@ -1,0 +1,500 @@
+body 
+{
+}
+
+.telaLogin
+{
+width: 400px;
+height: 242px;
+background-image: url('../imagens/tela_login.jpg');
+}
+
+.barra
+{
+height: 40px;
+background-image: url('../imagens/barra.jpg');
+}
+
+.telaTipos
+{
+background-image: url('../imagens/tb_tipos.jpg');
+}
+
+.telaUsuarios
+{
+background-image: url('../imagens/tb_usuario.jpg');
+}
+
+.telaAltera
+{
+background-image: url('../imagens/tb_fundo.jpg');
+}
+
+.rodape
+{
+font-size: small;
+}
+
+.style1
+{
+    height: 89px;
+}
+
+.style2
+{
+    height: 40px;
+}
+
+.style3
+{
+    text-align: left;
+}
+
+.style4
+{
+    width: 100%;
+    font-size: small;
+}
+
+ .style5
+{
+    width: 100%;
+}
+
+.style6
+{
+    width: 26px;
+}
+
+.style7
+{
+    width: 650px;
+    text-align: left;
+}
+     
+.style8
+{
+    width: 450px;
+    height: 250px;
+}
+
+.style9
+{
+    width: 432px;
+    height: 87px;
+    background-image: url('../imagens/quadro.jpg');
+}
+
+.style10
+{
+    width: 211px;
+}
+
+.style11
+{
+    width: 100%;
+    height: 100%;
+    font-size: small;
+    border: 1px solid #D3D9E7;
+}
+
+.style12
+{
+    height: 21px;
+    background-image: url('../imagens/tb-bg.gif');
+}
+
+.style13
+{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #D3D9E7;
+}
+
+.style14
+{
+    width: 80px;
+}
+
+.style15
+{
+    width: 85px;
+}
+
+.style16
+{
+    width: 345px;
+}
+
+.style17
+{
+    width: 100%;
+    height: 100%;
+    font-size: small;
+}
+
+.style18
+{
+    width: 100%;
+    height: 100%;
+}
+
+.style19
+{
+    width: 66px;
+}
+
+.style21
+        {
+            width: 57px;
+        }
+
+.style20
+{
+    width: 135px;
+}
+
+.treeview
+{
+    width: 100%;
+    height: 100%;
+}
+           
+.formLogin
+{
+    width: 250px;
+    font-size:small;
+}
+
+.caixaGrande
+{
+    width: 90%;
+    font-size: x-small;
+}
+
+.dropGrande
+{
+    width: 490px;
+    font-size: x-small;
+}
+
+.nomeMedio
+{
+    width: 160px;
+    font-size: x-small;
+}
+
+.caixaDrop
+{
+    width: 93%;
+    font-size: x-small;
+}
+
+.caixaMedia
+{
+    width: 70%;
+    font-size: x-small;
+}
+
+.caixaPequena
+{
+    width: 30%;
+    font-size: x-small;
+}
+
+.caixaTotal
+{
+    width: 100%;
+    font-size: x-small;
+}
+
+a
+{
+	color:Gray;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:Blue;
+	text-decoration:none;
+}
+
+.semBorda
+{
+    border:0 none #FFFFFF;
+	background-color:#FFFFCC;
+    width: 425px;
+    height: 60px;
+    text-align:center;
+    text-decoration:none;
+}
+
+.topoGoverno
+{
+    border:0 none #FFFFFF;
+	background-color:#FFCC00;
+    width: 100%;
+    height: 25px;
+    text-align:center;
+    text-decoration:none;
+}
+
+.tabTree
+{
+    width: 100%;
+    height: 400px;
+}
+
+#tr_atividades
+{
+	width:205px;
+	height: auto;
+	background-color:#FFFFFF;
+}
+.nodecls
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:.75em;
+	text-decoration:none;
+	color:#000000;
+}
+
+.botao
+{
+    border:0 none;
+	background-color:#D0DEF0;
+	font-family:Times;
+    font-size: small;
+    color: Gray;
+}
+
+.botaoA
+{
+    border:0 none;
+	background-color:#FFFFFF;
+	font-family:Times;
+    font-size: small;
+    color: Gray;
+}
+
+.botaoHist
+{
+    border:1 solid;
+	border-style:solid;
+	background-color:#FFFFFF;
+	font-family:Times;
+    font-size: small;
+    color: Gray;
+}
+
+.botaoPrincipal
+{
+    border:1 solid;
+	border-style:solid;
+	background-color:#FFFFCC;
+	font-family:Times;
+    font-size: large;
+    color: Red;
+}
+
+.botaoHistSemBorda
+{
+	border:0 solid;
+	border-style:solid;
+	background-color:#FFFFFF;
+	font-family:Times;
+    font-size: small;
+    color: Gray;
+}
+
+#frmMensagem .myButtonClass 
+{ 
+	padding:3px; 
+	font-size:15px; 
+	width:100px; 
+} 
+
+#frmMensagem .ok_button 
+{ 
+	color:#000000;
+} 
+
+#frmMensagem .cancel_button 
+{ 
+	color:#000000; 
+}
+
+.tabelaDeTipos
+{
+	font-family:Times;
+    font-size: small;
+}
+
+.txtsemBorda
+{
+    border:0 none #FFFFFF;
+	background-color:#FFFFFF;
+    width: 550px;
+    height: 20px;
+    text-align:center;
+    text-decoration:none;
+}
+
+.rotulo
+{
+	text-align:right;
+	font-family:Tahoma, Arial, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.rotuloTitulo
+{
+	text-align:center;
+	font-family:Tahoma, Arial, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+}
+
+.caixaElegante
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:300px;
+}
+.caixaTextoElegante
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:290px;
+}
+
+.caixaDadosElegante
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:365px;
+}
+
+.caixaAssuntoElegante
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:375px;
+}
+
+.caixaSegurancaElegante
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:150px;
+}
+
+.caixaManifestacaoElegante
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:435px;
+}
+
+.caixaEleganteMedia
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:200px;
+}
+.caixaEleganteGrande
+{
+	BORDER-RIGHT: #ffba14 1px solid; 
+	PADDING-RIGHT: 4px; 
+	BORDER-TOP: #ffba14 1px solid; 
+	PADDING-LEFT: 4px; 
+	FONT-SIZE: 9pt; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-LEFT: #ffba14 1px solid; 
+	COLOR: #000080; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: #ffba14 1px solid; 
+	FONT-FAMILY: Tahoma; 
+	BACKGROUND-COLOR: #ffffff;
+	width:90%;
+}
+
+.labelTextos
+{
+	text-align:left;
+	font-family:Tahoma, Arial, sans-serif;
+	font-size:13px;
+	
+}
