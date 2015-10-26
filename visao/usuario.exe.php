@@ -59,10 +59,10 @@ switch ($metodo)
 		require_once("../controle/valida.gti.php");
 		
 		$codigo = $_POST['txtCodigo'];	
-		$nome = $_POST['txtNome'];
-		$login = $_POST['txtLogin'];
-		$senha = $_POST['txtSenha'];
-		$senha2 = $_POST['txtSenha2'];
+		$nome = utf8_encode($_POST['txtNome']);
+		$login = utf8_encode($_POST['txtLogin']);
+		$senha = utf8_encode($_POST['txtSenha']);
+		$senha2 = utf8_encode($_POST['txtSenha2']);
 		$codigo_usuario = $_SESSION['vox_codigo'];
 
 		$valida = new gtiValidacao();
@@ -136,10 +136,10 @@ switch ($metodo)
 		require_once("../controle/valida.gti.php");
 		
 		$codigo = $_POST['txtCodigo'];	
-		$nome = $_POST['txtNome'];
-		$login = $_POST['txtLogin'];
-		$senha = $_POST['txtSenha'];
-		$senha2 = $_POST['txtSenha2'];
+		$nome = utf8_encode($_POST['txtNome']);
+		$login = utf8_encode($_POST['txtLogin']);
+		$senha = utf8_encode($_POST['txtSenha']);
+		$senha2 = utf8_encode($_POST['txtSenha2']);
 
 		$valida = new gtiValidacao();
 		$valida->ValidaCampoRequerido($nome,'nome');

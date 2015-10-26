@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 session_start();
 
 if (isset($_POST['txtMetodo']))
@@ -14,20 +14,24 @@ switch ($metodo)
 	case 'enviar':
 		require_once("../controle/valida.gti.php");
 		require_once("../controle/hora.gti.php");
-                require_once("../controle/data.gti.php");
+        require_once("../controle/data.gti.php");
+		require_once("../funcao.php");
+		require_once("../config.cls.php");
 
-		$clientela = $_POST['dpdClientela'];		
-		$tipo = $_POST['dpdTipo'];
-		$email = $_POST['txtEmail'];
-		$identificacao = $_POST['dpdIdentificacao'];
-		$nome = $_POST['txtNome'];
-		$cpf = $_POST['txtCPF'];
-		$telefone = $_POST['txtTelefone'];
-		$assunto = $_POST['txtAssunto'];
-		$manifestacao = $_POST['txtManifestacao'];
-		$razao = $_POST['txtRazao'];
-		$endereco = $_POST['txtEndereco'];
-		$seguranca = $_POST['txtSeguranca'];
+		$config = new clsConfig();
+		
+		$clientela = anti_injection($_POST['dpdClientela']);		
+		$tipo = anti_injection($_POST['dpdTipo']);
+		$email = anti_injection($_POST['txtEmail']);
+		$identificacao = anti_injection($_POST['dpdIdentificacao']);
+		$nome = anti_injection($_POST['txtNome']);
+		$cpf = anti_injection($_POST['txtCPF']);
+		$telefone = anti_injection($_POST['txtTelefone']);
+		$assunto = anti_injection($_POST['txtAssunto']);
+		$manifestacao = anti_injection($_POST['txtManifestacao']);
+		$razao = anti_injection($_POST['txtRazao']);
+		$endereco = anti_injection($_POST['txtEndereco']);
+		$seguranca = anti_injection($_POST['txtSeguranca']);
 		
 		//GUARDANDO VALORES NA SESSÃO
 		$_SESSION['vox_email']= $email;
@@ -56,17 +60,8 @@ switch ($metodo)
 		$valida->ValidaCampoRequerido($manifestacao,'manifestacao');
 		$valida->ValidaCampoRequerido($seguranca,'numero de seguranca');
 		$valida->ComparaCaptcha('numero de seguranca');
-		if($email=="")
-		{
-			$email="ouvidoria@ouvidoria.com";
-		}
-		else
-		{
-			$valida->ValidaEmail($email);
-		}
+		$valida->ValidaEmail($email);
 		
-			
-			
 		if($identificacao=='A')
 		{
 			$valida->ValidaCampoRequerido($razao,'razao do anonimato');
@@ -89,16 +84,8 @@ switch ($metodo)
 		elseif(($valida->GetErro() == false))
 		{
 			require_once("../modelo/manifestacao.cls.php");
-			require_once("../config.cls.php");
 			
 			$modo = new clsManifestacao();
-			$config = new clsConfig();	
-			
-			if(!stristr($email, "@") || !stristr($email, ".") || $email=="")
-			{
-				die($email);
-				$email="ouvidoria@ouvidoria.com";
-			}
 						
 			$modo->SetClientela($clientela);
 			$modo->SetTipo($tipo);
@@ -116,7 +103,7 @@ switch ($metodo)
 			$modo->Enviar();			
 				
 			//tela de confirmacao de sucesso
-			$texto_confirmacao = ':: SUA MANIFESTACAO FOI ENCAMINHADA COM SUCESSO:: <br><br/>Caro manifestante, o Instituto Federal Minas Gerais - Campus Bambui <br> agradece a sua manifestacao. Suas consideracoes foram imediatamente <br> remetidas a nosso departamento de ouvidoria e serao analisadas por <br> nosso(a) ouvidor(a). Para ter acesso ao andamento de sua manifestacao <br> entre com o seguinte numero: <br><br> ------------------------------------- <br>'.$modo->GetRegistro().' <br> ------------------------------------- <br><br>na nossa <a href="'.$config->GetRaiz().'/visao/consulta.frm.php">pagina de acompanhamento</a>. <br/><br>Caso tenha informado um email valido, a sua manifestacao <br> sera analisada e quando uma resposta for elaborada um segundo <br> email sera remetido para a caixa de mensagem que voce indicou. <br> A ouvidoria agradece a sua participacao no nosso crescimento.<br><br>VOX - Sistema de Ouvidoria<br>Instituto Federal Minas Gerais - Campus Bambui';
+			$texto_confirmacao = utf8_encode(':: SUA MANIFESTAÇÃO FOI ENCAMINHADA COM SUCESSO:: <br><br/>Caro manifestante, o '.utf8_encode($config->GetNomeInstituicao()).' <br> agradece a sua manifestação. Suas considerações foram imediatamente <br> remetidas a nossa ouvidoria e serão analisadas por <br> nosso(a) ouvidor(a). Para ter acesso ao andamento de sua manifestação <br> entre com o seguinte número: <br><br> ------------------------------------- <br>'.$modo->GetRegistro().' <br> ------------------------------------- <br><br>na nossa <a href="'.$config->GetRaiz().'/visao/consulta.frm.php" target="_blank">página de acompanhamento</a>. <br/><br>Caso tenha informado um email válido, a sua manifestação <br> será analisada e quando uma resposta for elaborada um segundo <br> email será remetido para a caixa de mensagem que você indicou. <br> A ouvidoria agradece a sua participação no nosso crescimento.<br><br>VOX - Sistema de Ouvidoria<br>Colégio Pedro II');
 			
 			
 			session_destroy();

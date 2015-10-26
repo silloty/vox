@@ -1,7 +1,7 @@
 <?php
 	class clsConfig
 	{
-		
+		private $app_nome_instituicao;
 		private $app_raiz;
 		private $app_biblioteca;
 		private $app_controle;
@@ -11,33 +11,49 @@
 		private $app_imagens;
 		private $app_estilos;
 		
+		private $email_ouvidoria;
+		private $email_admin;
+		private $email_senha;
+		private $email_host;
+		
 		//configuracoes bd
 		private $m_host;
 		private $m_usuario;
 		private $m_senha;
 		private $m_esquema;
 		private $m_driver;
-	
+		
+		private $quant_char_manifestacao;
+		
 		function clsConfig()
 		{
-			$this->app_raiz = "https://sistemas.cefetbambui.edu.br/ouvidoria";
-			$this->app_biblioteca = "ouvidoria/biblioteca/";
-			$this->app_controle = "ouvidoria/controle/";
-			$this->app_js = "ouvidoria/js/";
-			$this->app_modelo = "ouvidoria/modelo/";
-			$this->app_visao = "ouvidoria/visao/";
-			$this->app_imagens = "ouvidoria/visao/imagens/";
-			$this->app_estilos = "ouvidoria/visao/estilo/";
+			include 'config.php';
+			$this->app_nome_instituicao = $nome_instituicao;
+			$this->app_raiz = $diretorio["raiz"];
+			$this->app_biblioteca = $diretorio["biblioteca"];
+			$this->app_controle = $diretorio["controles"];
+			$this->app_js = $diretorio["javascript"];
+			$this->app_modelo = $diretorio["modelos"];
+			$this->app_visao = $diretorio["visoes"];
+			$this->app_imagens = $diretorio["imagens"];
+			$this->app_estilos = $diretorio["estilos"];
 			
 			//dados do banco
-			$this->m_driver = 'postgres';
-			$this->m_esquema = 'vox';
-			$this->m_host = 'IP_SERVIDOR_DADOS';
-			$this->m_senha = 'SENHA';
-			$this->m_usuario = 'usrvox';
+			$this->m_driver = $database["driver"];
+			$this->m_esquema = $database["esquema"];
+			$this->m_host = $database["host"];
+			$this->m_senha = $database["senha"];
+			$this->m_usuario = $database["usuario"];
+
+			$this->email_ouvidoria = $email["ouvidoria"];
+			$this->email_admin = $email["admin"];
+			$this->email_senha = $email["senha"];
+			$this->email_host = $email["host"];   
+			
+			$this->quant_char_manifestacao = $quant_char_manifestacao;
 			
 			@session_start();
-                }
+		        }
 
 public function GetRaiz()
             {
@@ -91,19 +107,33 @@ public function GetRaiz()
                        
                         public function GetEmailOuvidoria()
                                     {
-                                                    return "ouvidoria.bambui@ifmg.edu.br";
+                                                    return $this->email_ouvidoria;
                                                             }
                        
                         public function GetEmailAdmin()
                                     {
-                                                    return "silas.silva@ifmg.edu.br";
+                                                    return $this->email_admin;
                                                             }
+                        public function GetEmailHost()
+                        			{
+                        							return $this->email_host;
+                        									}
+                        public function GetEmailSenha()
+                        			{
+                        							return $this->email_senha;
+                        									}                        									
                        
                         public function GetImagemSemFoto()
                                     {
                                                     return "semfoto.jpg";
                                                             }
-                       
+                        public function GetNomeInstituicao()
+                                    {
+                                                   	return $this->app_nome_instituicao;
+                                                            }
+						public function GetQuantCharManifestacao(){
+													return $this->quant_char_manifestacao;
+						}
                         public function ConfirmaOperacao($volta, $mensagem)
                                     {
                                                     header('location:'. $this->GetPaginaConfirmacao() . '?pagina='. $volta . '&mensagem='.$mensagem);

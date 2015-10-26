@@ -51,7 +51,9 @@ class gtiMail
      */
     function Enviar($de, $para, $assunto, $nome_remetente)
     {
-		/*$config = new clsConfig();
+    	require_once '../config.cls.php';
+		$config = new clsConfig();
+		/*
 		$msg = implode("n", $this->parts);
         
 		if(!mail($para, $assunto, $msg, "From: $nome_remetente\nContent-Type: text/html; charset=iso-8859-1"))
@@ -76,15 +78,14 @@ class gtiMail
 		$email = new PHPMailer();
 		
 		$email->IsSMTP();
-		$email->Host = "smtp.gmail.com";
+		$email->Host = $config->GetEmailHost();
 		$email->SMTPAuth = true;
-		$email->Username = "EMAIL";
-		$email->Password = "SENHA";
-		$email->From = $para;
+		$email->Username = $config->GetEmailOuvidoria();
+		$email->Password = $config->GetEmailSenha();
+		$email->From = $de;
 		
 		
 		
-		$email->SetLanguage("en", "../biblioteca/phpmailer/language/");
         $email->CharSet = "UTF-8";
 		$email->SMTPSecure = "tls";
         $email->FromName = $nome_remetente;
@@ -92,8 +93,10 @@ class gtiMail
         $email->IsHtml(true);
         $email->AddAddress($para,$para);
         $email->Body = $msg;
+		$email->SMTP_PORT = 587;
+        $email->AltBody = $msg;
         
-        if(!$email->send())
+        if(!$email->Send())
 		{
 			return false;
 		}

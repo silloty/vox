@@ -43,6 +43,7 @@ else
     <script src="js/menu_direito/mmenudom.js" type="text/javascript"></script>
     <script src="js/menu_direito/dados/mn_dados.js" type="text/javascript"></script>
     <script src="js/menu_direito/contextmenu.js" type="text/javascript"></script>
+    <link href="estilo/datagrid/style.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
 <!--
 .style22 {
@@ -59,23 +60,21 @@ else
     <table align="center" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td valign="top">
-                <table align="center" cellpadding="0" cellspacing="1" width="780px">
+                <table align="center" border="0" cellpadding="0" cellspacing="1" width="780px">
                     <tr>
                         <td>
-                            <img src="imagens/banner.jpg" alt="" width="776" /></td>
+                            <img src="imagens/banner.jpg" alt="" width="100%" /></td>
                   </tr>
                     <tr>
                         <td class="barra">
                             <table cellpadding="0" cellspacing="0" class="style4">
                                 <tr>
-                                    <td class="style7 style23">
-                                        &nbsp;&nbsp; Seja Bem Vindo&nbsp; <?php echo $admin->GetNome(); ?>!&nbsp;</td>
-                                    <td >
-                                     
-                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <td class="style7">
+                                        &nbsp;&nbsp; Seja Bem Vindo&nbsp;<?php echo $admin->GetNome(); ?>!&nbsp;</td>
+                                    <td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
                                        <tr>
                                          <td>&nbsp;</td>
-                                         <td>&nbsp;<a href="admin.frm.php"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a></td>
+                                         <td>&nbsp;<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
                                        </tr>
                                      </table>
                                      
@@ -84,7 +83,7 @@ else
                                         <table cellpadding="0" cellspacing="0" class="style5">
                                             <tr>
                                                 <td class="style6">&nbsp;
-                                        <img alt="" src="imagens/bt_logout.jpg" style="margin-top: 0px" /></td>
+                                        <img alt="" src="imagens/bt_logout.jpg" style="margin-top: 2px" /></td>
                                                 <td>
                                                     &nbsp;<b><a href="<?php  echo $config->GetPaginaPrincipal()  ?>">SAIR</a></b></td>
                                             </tr>
@@ -109,7 +108,7 @@ else
 <img src="imagens/bt_fechadas.png" alt="" name="bt_fechadas" id="bt_fechadas" onmouseover="CarregaToolTip('bt_fechadas')" onmouseout="CarregaToolTip('')"/><br />
                                   <a href="fechadas.frm.php" onmouseover="CarregaToolTip('bt_fechadas')" onmouseout="CarregaToolTip('')"> Fechadas</a>(<?php  echo $manifestacao->PegaTotalManifestacao(3); ?>)</td>
                               <td width="109" align="center"><img src="imagens/bt_usuario.png" alt="" name="bt_usuario" id="bt_usuario" onmouseover="CarregaToolTip('bt_usuario')" onmouseout="CarregaToolTip('')"/><br />
-                                <a href="usuario.frm.php" onmouseover="CarregaToolTip('bt_usuario')" onmouseout="CarregaToolTip('')"> Usuários</a></td>
+                                <a href="usuario.frm.php" onmouseover="CarregaToolTip('bt_usuario')" onmouseout="CarregaToolTip('')"> Usu&aacute;rios</a></td>
                               <td width="109" align="center"><img alt="" src="imagens/bt_relatorios.png" id="bt_relatorios" onmouseover="CarregaToolTip('bt_relatorios')" onmouseout="CarregaToolTip('')"/><br />
                                 <a href="relatorios.frm.php" onmouseover="CarregaToolTip('bt_relatorios')" onmouseout="CarregaToolTip('')">Relat&oacute;rios</a></td>
                               </tr>
@@ -145,7 +144,7 @@ else
                             </td>
                     </tr>
                     <tr>
-                        <td align="center" valign="middle" bordercolor="#333333" bgcolor="#68B92E" class="rodape"><span class="style22">Sistema de Ouvidoria - VOX / IFMG - Campus Bambu&iacute;</span></td>
+                        <td align="center" valign="middle" bordercolor="#333333" bgcolor="#68B92E" class="rodape"><span class="style22">Sistema de Ouvidoria - <?php echo utf8_encode($config->GetNomeInstituicao());?></span></td>
                   </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">

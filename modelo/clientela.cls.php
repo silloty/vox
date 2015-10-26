@@ -177,6 +177,9 @@ class clsClientela
 	public function TotalPorClientela($data_inicial, $data_final)
 	{
 			
+		$data_inicial = implode("-",array_reverse(explode("/",$data_inicial)));
+		$data_final = implode("-",array_reverse(explode("/",$data_final)));
+		
 		$SQL = 'SELECT * FROM clientela;';
 		$con = new gtiConexao();
 		$con->gtiConecta();

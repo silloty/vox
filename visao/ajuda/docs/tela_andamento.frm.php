@@ -1,5 +1,9 @@
 <html>
 <head>
+<?php 
+	include "../../../config.cls.php";
+	$config = new clsConfig();
+?>
 <link rel="stylesheet" type="text/css" href="../../estilo/estilo.css">
 <link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="../../estilo/menu_ajuda.css">
@@ -87,7 +91,7 @@
     </table></td>
   </tr>
   <tr>
-    <td background="../../imagens/barra.jpg"><div align="center"><span class="rodape style22 style25"><span class="rodape style28"><span class="rodape  style30">VOX  - Instituto Federal Minas Gerais Campus Bambu&iacute; </span></span></span></div></td>
+    <td background="../../imagens/barra.jpg"><div align="center"><span class="rodape style22 style25"><span class="rodape style28"><span class="rodape  style30">VOX  - <?php echo $config->GetNomeInstituicao();?> </span></span></span></div></td>
   </tr>
 </table>
 <br>

@@ -17,7 +17,7 @@ $mensagem = $_GET['mensagem'];
                 <br />
                 <b>
                 <?php
-                	echo $mensagem;
+                	echo utf8_decode($mensagem);
                 ?>
                 </b>
                 <br />

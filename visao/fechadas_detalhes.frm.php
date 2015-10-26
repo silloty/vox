@@ -23,10 +23,11 @@ else
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 	<link rel="shortcut icon" href="../favicon.ico">
     <title>&Aacute;rea Administrativa - VOX </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=ocidental" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="estilo/estilo.css" rel="stylesheet" type="text/css" />
     <script src="js/geral.js" type="text/javascript"></script>
 	<script src="js/ajax/abertas.ajax.js" type="text/javascript"></script>
@@ -110,18 +111,28 @@ else
 					 $manifestacao = new clsManifestacao();
 					 $manifestacao->SetCodigo(trim($codigo));
 					 $manifestacao->ConsultarPorCodigo();
+					 $manifestacao->MarcarComoVisto();
 					 $clientela = new clsClientela();
 					 $tipo = new clsTipo();
 					 $status = new clsStatus();
 					 
-								
+					 echo '<table width="100%" border="0">
+							<tr>
+                            	<td width="211"><strong>C&oacute;digo:</strong></td>
+                            	<td>'.$manifestacao->GetCodigo().'</td>
+                            </tr>';					
+					if ($manifestacao->GetVisualizado() == 't')
+						$visualizado = 'checked';
 					if(trim($manifestacao->GetIdentificacao()) == 'S')
 					{
                      	echo 
 						'
-							<table width="100%" border="0">
+						  <tr>
+    						<td width="211"><strong>Visualizado:</strong></td>
+                            <td><input name="txtVisualizado" type="checkbox" '.$visualizado.' value="t" /></td>
+    					  </tr>
                           <tr>
-                            <td width="211"><strong>Forma de Identificação:</strong> </td>
+                            <td width="211"><strong>Forma de Identifica&ccedil;&atilde;o:</strong> </td>
                             <td width="402"><label>Sigiloso</label></td>
                             <td width="147" rowspan="11" valign="bottom"><div align="center">
                               <table width="100%" border="0">
@@ -133,7 +144,7 @@ else
   </tr>
 </table>
 </p>
-                              <img src="imagens/save.png" width="70" height="70" /><br><br><input name="btnAlterar" type="button" class="botaoA" id="btnAlterar" value="Salvar Alterações"  onClick="submitForm(\'frmDetalhes\',\'alterar\','.$manifestacao->GetCodigo().');"/>
+                              <img src="imagens/save.png" width="70" height="70" /><br><br><input name="btnAlterar" type="button" class="botaoA" id="btnAlterar" value="Salvar Altera&ccedil;&otilde;es"  onClick="submitForm(\'frmDetalhes\',\'alterar\','.$manifestacao->GetCodigo().');"/>
                               </div></td>
                           </tr>
                           <tr>
@@ -145,7 +156,7 @@ else
                 			<td>'. $manifestacao->GetCpf().'</td>
   </tr>
                           <tr>
-                            <td><strong>Tipo de manifestação: </strong></td>
+                            <td><strong>Tipo de manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdTipo" id="dpdTipo">
 							  <option value="'.$manifestacao->GetCodigoTipo().'">'.$manifestacao->GetTipo().'</option>
@@ -160,7 +171,7 @@ else
                             </td>
   </tr>
                           <tr>
-                            <td><strong>Endereço: </strong></td>
+                            <td><strong>Endere&ccedil;o: </strong></td>
                             <td>'.$manifestacao->GetEndereco().'</td>
                           </tr>
                           <tr>
@@ -168,11 +179,11 @@ else
                             <td>'.$manifestacao->GetEmail().'</td>
                           </tr>
                           <tr>
-                            <td><strong>Data da manifestação: : </strong></td>
-                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).'</td>
+                            <td><strong>Data da manifesta&ccedil;&atilde;o: : </strong></td>
+                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).' &agrave;s '.$manifestacao->GetDataHora().'</td>
   </tr>
                           <tr>
-                            <td><strong>Já passou por: </strong></td>
+                            <td><strong>J&aacute; passou por: </strong></td>
                             <td>'.$manifestacao->GetDepartamentos().'
 							<img src="imagens/info.png" alt="" width="17" height="17" onmouseover="Tip(\'Legenda de Cores <br> Verde - Respondida <br> Amarelo - Aguardando resposta <br> Vermelho - Aguardando há mais de 05 dias\', BGCOLOR, \'#FFFFFF\')" onmouseout="UnTip()" />
 							</td>
@@ -187,11 +198,11 @@ else
                             </label></td>
   </tr>
   <tr>
-                            <td valign="top"><strong>Assunto </strong></td>
+                            <td valign="top"><strong>Assunto: </strong></td>
                             <td valign="top">'.$manifestacao->GetAssunto().'</td>
   </tr>
                           <tr>
-                            <td valign="top"><strong>Conteúdo da manifestação: </strong></td>
+                            <td valign="top"><strong>Conte&uacute;do da manifesta&ccedil;&atilde;o: </strong></td>
                             <td valign="top">'.$manifestacao->GetConteudo().'</td>
   </tr>
   	<tr>
@@ -213,9 +224,12 @@ else
 					 {
 							echo
 							'
-								<table width="100%" border="0">
+    					  <tr>
+    						<td width="211"><strong>Visualizado:</strong></td>
+                            <td><input name="txtVisualizado" type="checkbox" '.$visualizado.' value="t" /></td>
+    					  </tr>
                           <tr>
-                            <td width="211"><strong>Forma de Identificação:</strong> </td>
+                            <td width="211"><strong>Forma de Identifica&ccedil;&atilde;o:</strong> </td>
                             <td width="402"><label>Identificado</label></td>
                             <td width="147" rowspan="11" valign="bottom"><div align="center">
                               <table width="100%" border="0">
@@ -228,19 +242,19 @@ else
 </table>
 </p>
                               <img src="imagens/save.png" width="70" height="70" /><br><br>
-							  <input name="btnAlterar" type="button" class="botaoA" id="btnAlterar" value="Salvar Alterações"  onClick="submitForm(\'frmDetalhes\',\'alterar\','.$manifestacao->GetCodigo().');"/>
+							  <input name="btnAlterar" type="button" class="botaoA" id="btnAlterar" value="Salvar Altera&ccedil;&otilde;es"  onClick="submitForm(\'frmDetalhes\',\'alterar\','.$manifestacao->GetCodigo().');"/>
                               </div></td>
                           </tr>
                           <tr>
                             <td><strong>Nome do manifestante:</strong></td>
-                            <td>'. $manifestacao->GetNome() .'</td>
+                            <td>'.  $manifestacao->GetNome() .'</td>
   </tr>
 						  <tr>
                             <td><strong>CPF:</strong></td>
                 			<td>'. $manifestacao->GetCpf().'</td>
   </tr>
                           <tr>
-                            <td><strong>Tipo de manifestação: </strong></td>
+                            <td><strong>Tipo de manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdTipo" id="dpdTipo">
 							  <option value="'.$manifestacao->GetCodigoTipo().'">'.$manifestacao->GetTipo().'</option>
@@ -255,7 +269,7 @@ else
                             </td>
   </tr>
                           <tr>
-                            <td><strong>Endereço: </strong></td>
+                            <td><strong>Endere&ccedil;o: </strong></td>
                             <td>'.$manifestacao->GetEndereco().'</td>
                           </tr>
                           <tr>
@@ -263,17 +277,17 @@ else
                             <td>'.$manifestacao->GetEmail().'</td>
                           </tr>
                           <tr>
-                            <td><strong>Data da manifestação: : </strong></td>
-                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).'</td>
+                            <td><strong>Data da manifesta&ccedil;&atilde;o: : </strong></td>
+                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).' &agrave;s '.$manifestacao->GetDataHora().'</td>
   </tr>
                           <tr>
-                            <td><strong>Já passou por: </strong></td>
+                            <td><strong>J&aacute; passou por: </strong></td>
                             <td>'.$manifestacao->GetDepartamentos().'
 							<img src="imagens/info.png" alt="" width="17" height="17" onmouseover="Tip(\'Legenda de Cores <br> Verde - Respondida <br> Amarelo - Aguardando resposta <br> Vermelho - Aguardando há mais de 05 dias\', BGCOLOR, \'#FFFFFF\')" onmouseout="UnTip()" />
 							</td>
   </tr>
                           <tr>
-                            <td><strong>Status da manifestação: </strong></td>
+                            <td><strong>Status da manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdStatus" id="dpdStatus">
 							  <option value="'.$manifestacao->GetCodigoStatus().'">'.$manifestacao->GetStatus().'</option>
@@ -282,11 +296,11 @@ else
                             </label></td>
   </tr>
   <tr>
-                            <td valign="top"><strong>Assunto </strong></td>
+                            <td valign="top"><strong>Assunto: </strong></td>
                             <td valign="top">'.$manifestacao->GetAssunto().'</td>
   </tr>
                           <tr>
-                            <td valign="top"><strong>Conteúdo da manifestação: </strong></td>
+                            <td valign="top"><strong>Conte&uacute;do da manifesta&ccedil;&atilde;o: </strong></td>
                             <td valign="top">'.$manifestacao->GetConteudo().'</td>
   </tr>
   <tr>
@@ -308,9 +322,12 @@ else
 					 {
 						echo
 						'
-							<table width="100%" border="0">
+    					  <tr>
+    						<td width="211"><strong>Visualizado:</strong></td>
+                            <td><input name="txtVisualizado" type="checkbox" '.$visualizado.' value="t" /></td>
+    					  </tr>
                           <tr>
-                            <td width="211"><strong>Forma de Identificação:</strong> </td>
+                            <td width="211"><strong>Forma de Identifica&ccedil;&atilde;o:</strong> </td>
                             <td width="402"><label>An&ocirc;nima</label></td>
                             <td width="147" rowspan="8" valign="bottom"><div align="center">
                               <table width="100%" border="0">
@@ -323,12 +340,12 @@ else
 </table>
 </p>
                               <img src="imagens/save.png" width="70" height="70" /><br><br>
-							  <input name="btnAlterar" type="button" class="botaoA" id="btnAlterar" value="Salvar Alterações"  onClick="submitForm(\'frmDetalhes\',\'alterar\','.$manifestacao->GetCodigo().');"/>
+							  <input name="btnAlterar" type="button" class="botaoA" id="btnAlterar" value="Salvar Altera&ccedil;&otilde;es"  onClick="submitForm(\'frmDetalhes\',\'alterar\','.$manifestacao->GetCodigo().');"/>
                               </div></td>
                           </tr>
                           
                           <tr>
-                            <td><strong>Tipo de manifestação: </strong></td>
+                            <td><strong>Tipo de manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdTipo" id="dpdTipo">
 							  <option value="'.$manifestacao->GetCodigoTipo().'">'.$manifestacao->GetTipo().'</option>
@@ -347,17 +364,17 @@ else
                             <td></td>
                           </tr>
                           <tr>
-                            <td><strong>Data da manifestação: : </strong></td>
-                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).'</td>
+                            <td><strong>Data da manifesta&ccedil;&atilde;o: : </strong></td>
+                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).' &agrave;s '.$manifestacao->GetDataHora().'</td>
   </tr>
                           <tr>
-                            <td><strong>Já passou por: </strong></td>
+                            <td><strong>J&aacute; passou por: </strong></td>
                             <td>'.$manifestacao->GetDepartamentos().'
 							<img src="imagens/info.png" alt="" width="17" height="17" onmouseover="Tip(\'Legenda de Cores <br> Verde - Respondida <br> Amarelo - Aguardando resposta <br> Vermelho - Aguardando há mais de 05 dias\', BGCOLOR, \'#FFFFFF\')" onmouseout="UnTip()" />
 							</td>
   </tr>
                           <tr>
-                            <td><strong>Status da manifestação: </strong></td>
+                            <td><strong>Status da manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdStatus" id="dpdStatus">
 							  <option value="'.$manifestacao->GetCodigoStatus().'">'.$manifestacao->GetStatus().'</option>
@@ -366,17 +383,17 @@ else
                             </label></td>
   </tr>
   <tr>
-                            <td valign="top"><strong>Assunto </strong></td>
+                            <td valign="top"><strong>Assunto: </strong></td>
                             <td valign="top">'.$manifestacao->GetAssunto().'</td>
   </tr>
                           <tr>
-                            <td valign="top"><strong>Conteúdo da manifestação: </strong></td>
+                            <td valign="top"><strong>Conte&uacute;do da manifesta&ccedil;&atilde;o: </strong></td>
                             <td valign="top">'.$manifestacao->GetConteudo().'</td>
   </tr>
   <tr>
   </td>
   <tr>
-                            <td valign="top"><strong>Razão do anonimato </strong></td>
+                            <td valign="top"><strong>Raz&atilde;o do anonimato:</strong></td>
                             <td valign="top">'.$manifestacao->GetAnonimato().'</td>
   </tr>
   <tr>
@@ -425,11 +442,11 @@ else
 		  <tr>
 			<td width="20%" background="imagens/barra.jpg"><strong>Departamento</strong></td>
 			<td width="50%" background="imagens/barra.jpg"><strong>Resposta</strong></td>
-			<td width="15%" background="imagens/barra.jpg"><strong>Data do envio</strong></td>
-			<td width="15%" background="imagens/barra.jpg"><strong>Data da resposta</strong></td>
+			<td width="15%" background="imagens/barra.jpg"><strong>Data/Hora do envio</strong></td>
+			<td width="15%" background="imagens/barra.jpg"><strong>Data/Hora da resposta</strong></td>
 		  </tr>
 		  <?php
-		   echo $manifestacao->PegaRespostasDepartamentos($manifestacao->GetCodigo());		  
+		   echo utf8_decode($manifestacao->PegaRespostasDepartamentos($manifestacao->GetCodigo()));		  
 		  ?>
 		</table></td>
 	  </tr>
@@ -446,7 +463,7 @@ else
                     
                     
                     <tr>
-                        <td align="center" valign="middle" bordercolor="#333333" bgcolor="#68B92E" class="rodape"><span class="style22">Sistema de Ouvidoria - VOX / IFMG - Campus Bambu&iacute;</span></td>
+                        <td align="center" valign="middle" bordercolor="#333333" bgcolor="#68B92E" class="rodape"><span class="style22">Sistema de Ouvidoria - <?php echo utf8_encode($config->GetNomeInstituicao());?></span></td>
                   </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">

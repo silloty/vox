@@ -1,5 +1,7 @@
-body 
-{
+#principal {
+	width: 990px ;
+	min-height: 671px ;
+	margin: auto;
 }
 
 .telaLogin

@@ -2,11 +2,12 @@
 
 require_once("../modelo/usuario.cls.php");
 require_once("../config.cls.php");
+require_once("../funcao.php");
 
 $config = new clsConfig();
 
-$login = trim($_POST['txtLogin']); 
-$senha = trim($_POST['txtSenha']);
+$login = anti_injection($_POST['txtLogin']); 
+$senha = anti_injection($_POST['txtSenha']);
 
 $usuario = new clsUsuario();
 $msg = "Login ou Senha incorretos!";
