@@ -182,6 +182,8 @@ class clsStatus
 		$con = new gtiConexao();
 		$con->gtiConecta();
 		$tbl = $con->gtiPreencheTabela($SQL);
+		$data_inicial = implode("-",array_reverse(explode("/",$data_inicial)));
+		$data_final = implode("-",array_reverse(explode("/",$data_final)));
 		
 		$cont=0;		
 		

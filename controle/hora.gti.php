@@ -81,7 +81,7 @@ public function somaAno($anos=1)
  
 public function getData() 
 { 
-	return $this->data[0]."/".$this->data[1]."/".$this->data[2]; 
+	return $this->data[1]."/".$this->data[0]."/".$this->data[2]; 
 }
  
 // HORA

@@ -26,17 +26,33 @@ switch ($metodo)
 			//Capturando Data Sistema
 			$data = new gtiHora();
 			$data_envio = $data->getData();
+			$hora_envio = $data->getHora();
 			
 					
 			//ENCAMINHANDO
 			require_once("../modelo/manifestacao.cls.php");
 			require_once("../config.cls.php");
+			require_once ('../funcao.php');
 			
-			$manifestacao = new clsManifestacao();		
+			if ($_POST["txtDespacho"]){
+				$manifestacao = new clsManifestacao();
+				$manifestacao->SetCodigo($codigo);
+				$manifestacao->ConsultarPorCodigo();
+				$manifestacao->SetDataEnvio($data_envio);
+				$manifestacao->SetHoraEnvio($hora_envio);
+				$reg_andamento = $manifestacao->EncaminharDepto(1);
+
+				$despacho = anti_injection($_POST["txtDespacho"]);
+				$manifestacao = new clsManifestacao();
+				$manifestacao->SetResposta($despacho);
+				$manifestacao->Responder($reg_andamento);
+			}
 			
+			$manifestacao = new clsManifestacao();			
 			$manifestacao->SetCodigo($codigo);
 			$manifestacao->ConsultarPorCodigo();
 			$manifestacao->SetDataEnvio($data_envio);
+			$manifestacao->SetHoraEnvio($hora_envio);
 					
 			$manifestacao->EncaminharDepto($cod_depto);
 			
@@ -54,7 +70,7 @@ switch ($metodo)
 		require_once("../config.cls.php");
 		require_once("../controle/valida.gti.php");
 				
-		$resp_final = $_POST['txtRespostaFinal'];
+		$resp_final = utf8_encode($_POST['txtRespostaFinal']);
 
 		$valida = new gtiValidacao();
 		$valida->ValidaCampoRequerido($resp_final,'resposta final');
@@ -84,9 +100,10 @@ switch ($metodo)
 		$cod = explode(":", $codigo);
 		$cod_departamento = $cod[0];
 		$cod_manifestacao = $cod[1];
+		$cod_andamento = $cod[2];
 			
 		$manifestacao = new clsManifestacao();
-		$manifestacao->ReenviarEmail($cod_departamento,$cod_manifestacao);
+		$manifestacao->ReenviarEmail($cod_departamento, $cod_andamento);
 		
 		$config = new clsConfig();
 		$config->ConfirmaOperacao('andamento_detalhes.frm.php?codigo='.$cod_manifestacao,"Email enviado com sucesso!");

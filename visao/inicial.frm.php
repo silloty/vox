@@ -7,22 +7,7 @@
 	$nav = trim($_SESSION['vox_nav']);
 	
 	$config->Logout(false);
-	
-		
-	$browser = new gtiBrowser();
-	$arr = $browser->getBrowser();
-	$navegador = $arr['nav'];
-							
-	if (($_SESSION['vox_nav'] != '1') && (trim($navegador) != 'FIREFOX'))
-	{	
-		header('location:frmFirefox.php');
-		exit();
-	}
-	else
-	{
-		$config = new clsConfig();
-		$_SESSION['vox_nav'] = '1';
-	}
+
 ?>
 
 
@@ -121,7 +106,7 @@
                             </td>
                     </tr>
                     <tr>
-                        <td align="center" valign="middle" bgcolor="#6AB82E" class="rodape"><span class="style22">Sistema de Ouvidoria - VOX / IFMG - Campus Bambu&iacute;</span></td>
+                        <td align="center" valign="middle" bgcolor="#6AB82E" class="rodape"><span class="style22">Sistema de Ouvidoria - <?php echo $config->GetNomeInstituicao();?></span></td>
                 </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">

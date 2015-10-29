@@ -47,7 +47,8 @@ $relatorio = @$_REQUEST['relatorio'];
         <td width="76">Data Inicial :</td>
         <td width="310">
             <label>
-            <input type="text" name="txtDataInicial" id="txtDataInicial" class="caixaGrande"  value="01-01-2009"/>
+            <input name="txtDataInicial" type="text" id="txtDataInicial" size="10" maxlength="10"/> 
+            (dd/mm/aaaa)
             </label></td>
       </tr>
       <tr>
@@ -58,8 +59,8 @@ $relatorio = @$_REQUEST['relatorio'];
         <td>Data Final :</td>
         <td>
             <label>
-            <input type="text" name="txtDataFinal" id="txtDataFinal" class="caixaGrande" value="31-12-2010"/>
-            </label>        </td>
+            <input name="txtDataFinal" type="text" id="txtDataFinal" size="10" maxlength="10" />
+            </label>              (dd/mm/aaaa)            </td>
       </tr>
       
       

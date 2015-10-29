@@ -17,6 +17,7 @@ switch ($metodo)
 				
 		$tipo = $_POST['dpdTipo'];
 		$status = $_POST['dpdStatus'];
+		$visualizado = $_POST['txtVisualizado'];
 			
 		if ($valida->GetErro() == true)
 		{
@@ -33,10 +34,13 @@ switch ($metodo)
 			$manifestacao->SetCodigo($codigo);
 			$manifestacao->SetCodigoTipo($tipo);
 			$manifestacao->SetCodigoStatus($status);
+			$manifestacao->SetVisualizado($visualizado);
+			$manifestacao->DesmarcarComoVisto();
 					
 			$manifestacao->AlterarFechadas();
 
-			$config->ConfirmaOperacao('fechadas_detalhes.frm.php?codigo='.$codigo,"Manifestacao alterada com sucesso!");
+			$config->ConfirmaOperacao('fechadas.frm.php',"Manifestacao alterada com sucesso!");
+			
 		}
 	break;
 	

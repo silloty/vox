@@ -52,12 +52,15 @@ else
   	<script type="text/javascript" src="js/janela/window_effects.js"> </script>
   	<script type="text/javascript" src="js/janela/debug.js"> </script>  
 	
+	<link href="estilo/datagrid/style.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
 <!--
-.style23 {
-	font-family: Tahoma, Arial, sans-serif;
+.style22 {
 	color: #FFFFFF;
+	font-weight: bold;
+	font-family: Tahoma, Arial, sans-serif;
 }
+.style23 {font-family: Tahoma, Arial, sans-serif}
 -->
     </style>
 </head>
@@ -66,34 +69,33 @@ else
         <tr>
             <td valign="top">
                 <form id="frmRelatorios" name="frmRelatorios" method="post" action="">
-                <table align="center" cellpadding="0" cellspacing="1" width="792">
+                <table width="780px" border="0" align="center" cellpadding="0" cellspacing="1">
                     <tr>
-                        <td width="788">
-                            <img src="imagens/banner.jpg" alt="" width="786" /></td>
+                        <td>
+                            <img src="imagens/banner.jpg" alt="" width="100%" /></td>
                     </tr>
                     <tr>
                         <td class="barra">
-                            <table width="93%" cellpadding="0" cellspacing="0" class="style4">
+                            <table cellpadding="0" cellspacing="0" class="style4">
                                 <tr>
                                     <td class="style7">
-                                        &nbsp;&nbsp; Seja Bem Vindo <?php echo $admin->GetNome(); ?>!&nbsp;</td>
+                                        &nbsp;&nbsp; Seja Bem Vindo&nbsp; <?php echo $admin->GetNome(); ?>!&nbsp;</td>
                                     <td >
                                      
                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                        <tr>
-                                         <td><img src="imagens/back.png" width="19" height="17" style="width: 17px; height: 16px" /></td>
-                                         <td>&nbsp;<a href="admin.frm.php"><b>VOLTAR</b></a></td>
+                                         <td width="25%"><img src="imagens/back.png" width="8" height="30" style="width: 17px; height: 16px" /></td>
+                                         <td width="75%">&nbsp;<a href="admin.frm.php"><b>VOLTAR</b></a></td>
                                        </tr>
                                      </table>
                                      
-                                  </td>
+                                  </td><td >&nbsp;&nbsp;&nbsp;</td>
                               <td valign="middle">
                                         <table cellpadding="0" cellspacing="0" class="style5">
                                             <tr>
-                                                <td class="style6">&nbsp;
+                                                <td class="style6">
                                         <img alt="" src="imagens/bt_logout.jpg" style="margin-top: 0px" /></td>
-                                                <td>
-                                                    &nbsp;<b><a href="<?php echo $config->GetPaginaPrincipal(); ?>">SAIR</a></b></td>
+                                                <td><b><a href="<?php echo $config->GetPaginaPrincipal(); ?>">SAIR</a></b></td>
                                             </tr>
                                         </table>
                                   </td>
@@ -105,17 +107,17 @@ else
                         <td><div align="center">
                           <p><strong>:: RELAT&Oacute;RIOS ::</strong></p>
 						  <p>
-						    <input id="btnRelManifestacoes" type="button" value="Relação de manifestações recebidas" class="botaoHistSemBorda" name="btnRelManifestacoes"
+						    <input id="btnRelManifestacoes" type="button" value="Rela&ccedil;&atilde;o de manifesta&ccedil;&otilde;es recebidas" class="botaoHistSemBorda" name="btnRelManifestacoes"
         onclick="Dialog.alert({url: 'relatorio_periodo.frm.php?relatorio=manifestacao', options: {method: 'get'}}, {className: 'alphacube', width:450, okLabel: 'Voltar'});" />
                           </p>
 						  <p>
-						    <input id="btnRelAtividades" type="button" value="Relatório de atividades" class="botaoHistSemBorda" name="btnRelAtividades" onclick="Dialog.alert({url: 'relatorio_periodo.frm.php?relatorio=atividade', options: {method: 'get'}}, {className: 'alphacube', width:450, okLabel: 'Voltar'});"/>
+						    <input id="btnRelAtividades" type="button" value="Relat&oacute;rio de atividades" class="botaoHistSemBorda" name="btnRelAtividades" onclick="Dialog.alert({url: 'relatorio_periodo.frm.php?relatorio=atividade', options: {method: 'get'}}, {className: 'alphacube', width:450, okLabel: 'Voltar'});"/>
 						  </p>
 						  <p>&nbsp;</p>
                         </div></td>
                   </tr>
                     <tr>
-                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style23">Sistema de Ouvidoria - VOX / IFMG - Campus Bambu&iacute;</span></td>
+                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style22">Sistema de Ouvidoria - <?php echo $config->GetNomeInstituicao();?></span></td>
                     </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">

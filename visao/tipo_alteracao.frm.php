@@ -75,7 +75,7 @@ $tipo = new clsTipo();
         <td>Vis&iacute;vel ao manifestante</td>
         <td><label>
           <select name="dpdVisivel" id="dpdVisivel">
-            <option>-- Selecione --</option>
+            <option value="<?php echo $tipo->mostrar;?>" selected><?php if (($tipo->mostrar) == 1) echo 'Sim'; else echo 'N&atilde;o';?></option>
             <option value="1">Sim</option>
             <option value="0">N&atilde;o</option>
                               </select>

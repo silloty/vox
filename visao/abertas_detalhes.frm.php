@@ -21,12 +21,11 @@ else
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<link rel="shortcut icon" href="../favicon.ico">
     <title>&Aacute;rea Administrativa - VOX </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=ocidental" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="estilo/estilo.css" rel="stylesheet" type="text/css" />
     <script src="js/geral.js" type="text/javascript"></script>
 	<script src="js/ajax/abertas.ajax.js" type="text/javascript"></script>
@@ -110,18 +109,28 @@ else
 					 $manifestacao = new clsManifestacao();
 					 $manifestacao->SetCodigo(trim($codigo));
 					 $manifestacao->ConsultarPorCodigo();
+					 $manifestacao->MarcarComoVisto();
 					 $clientela = new clsClientela();
 					 $tipo = new clsTipo();
 					 $departamento = new clsDepartamento();
 					 
-								
+					echo '<table width="100%" border="0">
+							<tr>
+                            	<td width="211"><strong>C&oacute;digo:</strong></td>
+                            	<td>'.$manifestacao->GetCodigo().'</td>
+                            </tr>';					
+					if ($manifestacao->GetVisualizado() == 't')
+						$visualizado = 'checked';
 					if(trim($manifestacao->GetIdentificacao()) == 'S')
 					{
                      	echo 
 						'
-							<table width="100%" border="0">
+						  <tr>
+    						<td width="211"><strong>Visualizado:</strong></td>
+                            <td><input name="txtVisualizado" type="checkbox" '.$visualizado.' value="t" /></td>
+    					  </tr>
                           <tr>
-                            <td width="211"><strong>Forma de Identificação:</strong> </td>
+                            <td width="211"><strong>Forma de Identifica&ccedil;&atilde;o:</strong> </td>
                             <td width="402"><label>Sigiloso</label></td>
                             <td width="147" rowspan="5" valign="bottom"><div align="center"><img src="imagens/save.png" width="70" height="70" /></div></td>
                           </tr>
@@ -134,7 +143,7 @@ else
                 			<td>'. $manifestacao->GetCpf().'</td>
   </tr>
                           <tr>
-                            <td><strong>Tipo de manifestação: </strong></td>
+                            <td><strong>Tipo de manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdTipo" id="dpdTipo">
 							  <option value="'.$manifestacao->GetCodigoTipo().'">'.$manifestacao->GetTipo().'</option>
@@ -146,7 +155,7 @@ else
                             <td><strong>Clientela: </strong></td>
                             <td><label>
                             <select name="dpdClientela" id="dpdClientela">
-							<option value="'.$manifestacao->GetCodigoClientela().'">'.$manifestacao->GetClientela().'</option>
+							<option value="'.$manifestacao->GetCodigoClientela().'">'.utf8_encode($manifestacao->GetClientela()).'</option>
 							'.$clientela->ListaComboClientela().'
                             </select>
                             </label></td>
@@ -183,8 +192,8 @@ else
                             </div></td>
                           </tr>
                           <tr>
-                            <td><strong>Data da manifestação: : </strong></td>
-                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).'</td>
+                            <td><strong>Data da manifesta&ccedil;&atilde;o: : </strong></td>
+                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).' &agrave;s '.$manifestacao->GetDataHora().'</td>
   </tr>
                           <tr>
                             <td><strong>Já passou por: </strong></td>
@@ -205,9 +214,20 @@ else
                             <td valign="top">'.$manifestacao->GetAssunto().'</td>
   </tr>
                           <tr>
-                            <td valign="top"><strong>Conteúdo da manifestação: </strong></td>
+                            <td valign="top"><strong>Conte&uacute;do da manifesta&ccedil;&atilde;o: </strong></td>
                             <td valign="top">'.$manifestacao->GetConteudo().'</td>
   </tr>
+                          <tr>
+                              <td><strong>Despacho</strong></td>
+                            <td><label>
+                              <textarea name="txtDespacho" cols="40" rows="7" id="txtDespacho"></textarea>
+                            </label></td>
+                            <td valign="top"><div align="center">
+                              <label>
+                              
+                              </label>
+                            </div></td>
+                          </tr>
                           <tr>
                               <td><strong>Resposta Final </strong></td>
                             <td><label>
@@ -235,9 +255,12 @@ else
 					 {
 							echo
 							'
-									<table width="100%" border="0">
+                           <tr>
+    						<td width="211"><strong>Visualizado:</strong></td>
+                            <td><input name="txtVisualizado" type="checkbox" '.$visualizado.' value="t" /></td>
+    					  </tr>
                           <tr>
-                            <td width="211"><strong>Forma de Identificação:</strong> </td>
+                            <td width="211"><strong>Forma de Identifica&ccedil;&atilde;o:</strong> </td>
                             <td width="402"><label>IDENTIFICADO</label></td>
                             <td width="147" rowspan="5" valign="bottom"><div align="center"><img src="imagens/save.png" width="70" height="70" /></div></td>
                           </tr>
@@ -250,7 +273,7 @@ else
                 			<td>'. $manifestacao->GetCpf().'</td>
   </tr>
                           <tr>
-                            <td><strong>Tipo de manifestação: </strong></td>
+                            <td><strong>Tipo de manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdTipo" id="dpdTipo">
 							  <option value="'.$manifestacao->GetCodigoTipo().'">'.$manifestacao->GetTipo().'</option>
@@ -268,7 +291,7 @@ else
                             </label></td>
   </tr>
                           <tr>
-                            <td><strong>Endereço: </strong></td>
+                            <td><strong>Endere&ccedil;o: </strong></td>
                             <td>'.$manifestacao->GetEndereco().'</td>
                             <td><div align="center">
                               <label>
@@ -299,8 +322,8 @@ else
                             </div></td>
                           </tr>
                           <tr>
-                            <td><strong>Data da manifestação: : </strong></td>
-                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).'</td>
+                            <td><strong>Data da manifesta&ccedil;&atilde;o: : </strong></td>
+                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).' &agrave;s '.$manifestacao->GetDataHora().'</td>
   </tr>
                           <tr>
                             <td><strong>Já passou por: </strong></td>
@@ -321,9 +344,20 @@ else
                             <td valign="top">'.$manifestacao->GetAssunto().'</td>
   </tr>
                           <tr>
-                            <td valign="top"><strong>Conteúdo da manifestação: </strong></td>
+                            <td valign="top"><strong>Conteúdo da manifesta&ccedil;&atilde;o: </strong></td>
                             <td valign="top">'.$manifestacao->GetConteudo().'</td>
   </tr>
+                          <tr>
+                              <td><strong>Despacho</strong></td>
+                            <td><label>
+                              <textarea name="txtDespacho" cols="40" rows="7" id="txtDespacho"></textarea>
+                            </label></td>
+                            <td valign="top"><div align="center">
+                              <label>
+                              
+                              </label>
+                            </div></td>
+                          </tr>
                           <tr>		
 							  <td><strong>Resposta Final </strong></td>
                             <td><label>
@@ -351,15 +385,18 @@ else
 					 {
 						echo
 						'
-							<table width="100%" border="0">
+                           <tr>
+    						<td width="211"><strong>Visualizado:</strong></td>
+                            <td><input name="txtVisualizado" type="checkbox" '.$visualizado.' value="t" /></td>
+    					  </tr>
                           <tr>
-                            <td width="211"><strong>Forma de Identificação:</strong> </td>
+                            <td width="211"><strong>Forma de Identifica&ccedil;&atilde;o:</strong> </td>
                             <td width="402"><label>An&ocirc;nima</label></td>
                             <td width="147" rowspan="3" valign="bottom"><div align="center"><img src="imagens/save.png" width="70" height="70" /></div></td>
                           </tr>
                           
                           <tr>
-                            <td><strong>Tipo de manifestação: </strong></td>
+                            <td><strong>Tipo de manifesta&ccedil;&atilde;o: </strong></td>
                             <td><label>
                               <select name="dpdTipo" id="dpdTipo">
 							  <option value="'.$manifestacao->GetCodigoTipo().'">'.$manifestacao->GetTipo().'</option>
@@ -408,8 +445,8 @@ else
                             </div></td>
                           </tr>
                           <tr>
-                            <td><strong>Data da manifestação: : </strong></td>
-                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).'</td>
+                            <td><strong>Data da manifesta&ccedil;&atilde;o: : </strong></td>
+                            <td>'.$data->ConverteDataBR($manifestacao->GetDataCriacao()).' &agrave;s '.$manifestacao->GetDataHora().'</td>
   </tr>
                           <tr>
                             <td><strong>Já passou por: </strong></td>
@@ -431,13 +468,24 @@ else
                             <td valign="top">'.$manifestacao->GetAssunto().'</td>
   </tr>
                           <tr>
-                            <td valign="top"><strong>Conteúdo da manifestação: </strong></td>
+                            <td valign="top"><strong>Conte&uacute;do da manifesta&ccedil;&atilde;o: </strong></td>
                             <td valign="top">'.$manifestacao->GetConteudo().'</td>
   </tr>
   <tr>
-                            <td valign="top"><strong>Razão do anonimato: </strong></td>
+                            <td valign="top"><strong>Raz&atilde;o do anonimato: </strong></td>
                             <td valign="top">'.$manifestacao->GetAnonimato().'</td>
   </tr>
+                          <tr>
+                              <td><strong>Despacho</strong></td>
+                            <td><label>
+                              <textarea name="txtDespacho" cols="40" rows="7" id="txtDespacho"></textarea>
+                            </label></td>
+                            <td valign="top"><div align="center">
+                              <label>
+                              
+                              </label>
+                            </div></td>
+                          </tr>
                           <tr>
                               <td><strong>Resposta Final </strong></td>
                             <td><label>
@@ -469,7 +517,7 @@ else
                     </tr>
                     
                     <tr>
-                        <td align="center" valign="middle" bordercolor="#333333" bgcolor="#68B92E" class="rodape"><span class="style22">Sistema de Ouvidoria - VOX / IFMG - Campus Bambu&iacute;</span></td>
+                        <td align="center" valign="middle" bordercolor="#333333" bgcolor="#68B92E" class="rodape"><span class="style22">Sistema de Ouvidoria - <?php echo utf8_encode($config->GetNomeInstituicao());?></span></td>
                   </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">

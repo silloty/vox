@@ -16,7 +16,7 @@ switch ($metodo)
 				
 		$tipo = $_POST['dpdTipo'];
 		$clientela = $_POST['dpdClientela'];
-					
+		$visualizado = $_POST['txtVisualizado'];
 		if ($valida->GetErro() == true)
 		{
 			echo $valida->GetMensagem();
@@ -32,10 +32,10 @@ switch ($metodo)
 			$manifestacao->SetCodigo($codigo);
 			$manifestacao->SetCodigoTipo($tipo);
 			$manifestacao->SetCodigoClientela($clientela);
-					
+			$manifestacao->SetVisualizado($visualizado);
 			$manifestacao->Alterar();
 
-			$config->ConfirmaOperacao('abertas_detalhes.frm.php?codigo='.$codigo,"Manifestacao alterada com sucesso!");
+			$config->ConfirmaOperacao('abertas.frm.php',"Manifestacao alterada com sucesso!");
 		}
 	break;
 	
@@ -58,18 +58,36 @@ switch ($metodo)
 			//Capturando Data Sistema
 			$data = new gtiHora();
 			$data_envio = $data->getData();
-			
+			$hora_envio = $data->getHora();
 					
 			//ENCAMINHANDO
 			require_once("../modelo/manifestacao.cls.php");
 			require_once("../config.cls.php");
+			require_once ('../funcao.php');
+			
+			if ($_POST["txtDespacho"]){
+				$manifestacao = new clsManifestacao();
+				$manifestacao->SetCodigo($codigo);
+				$manifestacao->ConsultarPorCodigo();
+				$manifestacao->SetDataEnvio($data_envio);
+				$manifestacao->SetHoraEnvio($hora_envio);
+				$reg_andamento = $manifestacao->EncaminharDepto(1);
+			
+				$despacho = anti_injection($_POST["txtDespacho"]);
+				$manifestacao = new clsManifestacao();
+				$manifestacao->SetResposta($despacho);
+				$manifestacao->Responder($reg_andamento);
+			}
+			$data = new gtiHora();
+			$data_envio = $data->getData();
+			$hora_envio = $data->getHora();
 			
 			$manifestacao = new clsManifestacao();		
 			
 			$manifestacao->SetCodigo($codigo);
 			$manifestacao->ConsultarPorCodigo();
 			$manifestacao->SetDataEnvio($data_envio);
-					
+			$manifestacao->SetHoraEnvio($hora_envio);
 			$manifestacao->EncaminharDepto($cod_depto);
 
 			$config->ConfirmaOperacao('abertas_detalhes.frm.php?codigo='.$codigo,"Manifestacao encaminhada com sucesso!");

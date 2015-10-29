@@ -31,6 +31,9 @@ class gtiRelatorio extends FPDF
 	
 	public function Header()
 	{
+		require_once("../config.cls.php");
+		$config = new clsConfig();
+		
 	    //$this->Image('../visao/imagens/logo.jpg',10,8,33);
 		$this->Image('../visao/imagens/logovox.jpg',160,10,40);
 
@@ -39,7 +42,7 @@ class gtiRelatorio extends FPDF
 	    $this->Cell(201,10,'VOX SISTEMA DE OUVIDORIA',0,0,'L');
 	    $this->Ln(5);
 
-	    $this->Cell(205,10,'INSTITUTO FEDERAL MINAS GERAIS CAMPUS BAMBUI',0,0,'L');
+	    $this->Cell(205,10,$config->GetNomeInstituicao(),0,0,'L');
 	    $this->Ln(2);
 	    $this->Cell(220,10,'_____________________________________________________________________',0,0,'L');
 	    $this->Ln(8);

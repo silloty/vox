@@ -80,9 +80,9 @@ switch ($metodo)
 		require_once("../controle/valida.gti.php");
 		
 		$codigo = $_POST['txtCodigo'];	
-		$nome = $_POST['txtNome'];
-		$email = $_POST['txtEmail'];
-		$descricao = $_POST['txtDescricao'];
+		$nome = utf8_encode($_POST['txtNome']);
+		$email = utf8_encode($_POST['txtEmail']);
+		$descricao = utf8_encode($_POST['txtDescricao']);
 
 		$valida = new gtiValidacao();
 		$valida->ValidaCampoRequerido($nome,'nome');
@@ -118,9 +118,9 @@ switch ($metodo)
 		require_once("../controle/valida.gti.php");
 		
 		$codigo = $_POST['txtCodigo'];	
-		$nome = $_POST['txtNome'];
-		$email = $_POST['txtEmail'];
-		$descricao = $_POST['txtDescricao'];
+		$nome = utf8_encode($_POST['txtNome']);
+		$email = utf8_encode($_POST['txtEmail']);
+		$descricao = utf8_encode($_POST['txtDescricao']);
 
 		$valida = new gtiValidacao();
 		$valida->ValidaCampoRequerido($nome,'nome');

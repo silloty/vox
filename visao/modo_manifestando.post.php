@@ -17,12 +17,11 @@ switch ($metodo)
 				<td colspan="2">Raz&otilde;es para o anonimato:</td>
 				</tr>
 			  <tr>
-				<td colspan="2">
-				  <textarea name="txtRazao" cols="40" rows="5" id="txtRazoes" class="caixaManifestacaoElegante">'.$_SESSION['vox_razao'].'</textarea></td>
-				</tr>
-				
-				
-				</table>		
+				<td colspan="2">				  
+					<textarea name="txtRazao" cols="40" rows="5" id="txtRazoes" class="caixaManifestacaoElegante">'.$_SESSION['vox_razao'].'</textarea>				  
+				</td>				
+			  </tr>
+			  <tr>	
 			';
 		}
 		else		
@@ -54,12 +53,20 @@ switch ($metodo)
   <tr>
     <td>&nbsp;</td>
     <td><div align="right" class="style26">* Somente n&uacute;meros </div></td>
-  </tr>
-  </table>
-			';
+  </tr>';
 		}
-		
-		
+		if (trim($codigo) == 'A' || trim($codigo) == 'S')
+			echo
+			'<tr>
+				<td>					
+				</td>
+				<td>
+					<div align="right" class="style26">
+						Obs: Em manifesta&ccedil;&otilde;es an&ocirc;nimas ou sigilosas, evitar a identifica&ccedil;&atilde;o ao preencher o formul&aacute;rio.
+					</div>
+				</td>
+			  </tr>';
+		echo '</table>';
 	break;
 
 }

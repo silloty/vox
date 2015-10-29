@@ -1,6 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<?php		
+	require_once("../config.cls.php");
+	$config = new clsConfig();	
+?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Em constru&ccedil;&atilde;o</title>
 </head>
@@ -14,7 +18,7 @@
     <td><div align="center">
       <p><strong>ESTA P&Aacute;GINA EST&Aacute; EM CONSTRU&Ccedil;&Atilde;O </strong></p>
       <p>SISTEMA DE OUVIDORIA - VOX</p>
-      <p>Ger&ecirc;ncia de Tecnologia da Informa&ccedil;&atilde;o <br> Instituto Federal Minas Gerais - Campus Bambu&iacute;  </p>
+      <p><?php $config->GetNomeInstituicao(); ?>;  </p>
       </div></td>
   </tr>
   <tr>

@@ -12,7 +12,7 @@ else
 }
 
 $valor = $_REQUEST['valor'];
-
+$tipo_filtro = $_REQUEST['tipo_filtro'];
 switch ($metodo)
 {
 	//SELEÇÕES DE GRID----------------------------------------------
@@ -41,7 +41,7 @@ switch ($metodo)
 		$xml = new gtiXML();
 		$manifestacao = new clsManifestacao();
 			
-		$arr = $manifestacao->ListaFiltroFechadasArray(strtolower($valor));
+		$arr = $manifestacao->ListaFiltroStatusArray(strtolower($valor), 3, strtolower($tipo_filtro));
 		$lista = $xml->ArrayParaXML($arr);
 		
 		echo $lista;

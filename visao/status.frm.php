@@ -208,7 +208,7 @@ else
                         <td>&nbsp;                            </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style23">Sistema de Ouvidoria - VOX / CEFET - Bambu&iacute;</span></td>
+                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style23">Sistema de Ouvidoria - VOX / <?php echo $config->GetNomeInstituicao();?></span></td>
                   </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">

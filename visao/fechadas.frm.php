@@ -135,7 +135,8 @@ else
                                             <td width="94%">
             <!--GRID-->
             <input type="Text" id="txtFiltro" name="txtFiltro">
-			<input name="btnFiltrar" type="Button" id="btnFiltrar" onclick="Filtrar()" value="Filtrar Assunto">
+			<input name="btnFiltrar" type="Button" id="btnFiltrar" onclick="Filtrar()" value="Filtrar">
+			&nbsp;por:<input type="radio" name="txtTipoFiltro" id="txtTipoFiltro" value="nome">Nome<input type="radio" id="txtTipoFiltro" name="txtTipoFiltro" value="assunto" checked="checked">Assunto
 			<div id="grid" height="330px" style="background-color:white;overflow:hidden">
            	<!--GRID-->            
             </div>
@@ -166,12 +167,12 @@ else
 									
 											grid = new dhtmlXGridObject('grid');
 											grid.setImagePath("imagens/datagrid/");
-											grid.setHeader("C\u00f3digo, Assunto, Clientela, Tipo, Forma, Inicio, Fim, Status,FB, ");
-											grid.setInitWidths("60,*,115,70,70,65,65,80,28,30");
-											grid.setColAlign("center, right, center, center, center, center, center, center, center,center");
+											grid.setHeader("C\u00f3digo, Assunto, Clientela, Tipo, Forma, Inicio, Fim, Status,FB, Viu, ");
+											grid.setInitWidths("60,*,115,70,70,65,65,80,28,30,30");
+											grid.setColAlign("center, right, center, center, center, center, center, center, center, left, center");
 												
-											grid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro,ro,link");
-											grid.setColSorting("str,str,str,str,str,str,str,str,str,str");
+											grid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,link");
+											grid.setColSorting("int,str,str,str,str,str,str,str,str,str,str");
 											grid.enablePaging(true,15,5,"pagingArea",true,"recinfoArea");
       										grid.enableKeyboardSupport(true);											
 											grid.enableDragAndDrop("false");
@@ -186,11 +187,16 @@ else
 						
 						function Filtrar()
 						{
-							var valor;
-							valor = document.getElementById("txtFiltro").value;
+							var valor = document.getElementById("txtFiltro").value;
+							var tipo_filtro = document.getElementsByName("txtTipoFiltro");
+							for (var i = 0, length = tipo_filtro.length; i < length; i++) {
+							    if (tipo_filtro[i].checked) {								    
+							        tipo_filtro = tipo_filtro[i].value;
+							        break;
+							    }
+							}
 							grid.init();
-							grid.loadXML("fechadas.exe.php?metodo=filtrar&valor="+valor+"");
-						
+							grid.loadXML("fechadas.exe.php?metodo=filtrar&valor="+valor+"&tipo_filtro="+tipo_filtro);						
 						}
 								
 																													
@@ -203,7 +209,7 @@ else
                         <td>&nbsp;                            </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style23">Sistema de Ouvidoria - VOX / IFMG - Campus Bambu&iacute;</span></td>
+                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style23">Sistema de Ouvidoria - <?php echo $config->GetNomeInstituicao();?></span></td>
                   </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">

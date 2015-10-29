@@ -1,4 +1,5 @@
 <?php
+include '../tema.php';
 session_start();
 $registro = $_SESSION['vox_registro'];
 
@@ -24,23 +25,20 @@ $registro = $_SESSION['vox_registro'];
 </script>
 -->
 
-<link href="estilo/estilo.css" rel="stylesheet" type="text/css" />
+<title>:: VOX ::</title>
+<?php echo $css; ?>
 
 </head>
 
-<body background="imagens/fundo.jpg">
+<body>
+<?php echo $barra_brasil; ?>
+<?php echo $cabecalho; ?>
+<div id="principal" align="center">
 
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" hspace="0" >
   <tr>
     <td valign="top"> 
 		<table width="100%" height="80" border="0" align="center" background="">
-  <tr>
-    <td bgcolor="#FFCC00">
-	<div class="topoGoverno" id="barra-superior">
-          <div align="left"><img src="imagens/logo_edu.gif" alt="Minist&eacute;rio da Educa&ccedil;&atilde;o" width="430" height="20" border="0" >          </div>
-    </div>
-	</td>
-  </tr>
   <tr>
     <td height="80px" background="imagens/bg_barra.jpg" align="center" >
 	<div style="height:70px; width:500px; background:url(imagens/logo_bvox.png)" ></div>
@@ -48,7 +46,7 @@ $registro = $_SESSION['vox_registro'];
 	</td>
   </tr>
   <tr>
-    <td height="25px" background="imagens/bg_barra.jpg" align="center" ><span class="style22"><strong>:: CONSULTE O ANDAMENTO DA SUA MANIFESTAÇÃO:: </strong></span></td>
+    <td height="25px" background="imagens/bg_barra.jpg" align="center" ><span class="style22"><strong>:: CONSULTE O ANDAMENTO DA SUA MANIFESTA&Ccedil;&Atilde;O:: </strong></span></td>
   </tr>
   
   <tr>
@@ -59,11 +57,11 @@ $registro = $_SESSION['vox_registro'];
 <table width="100%">
 
   <tr>
-    <td>Consulte o andamento de sua manifestação:</td>
+    <td>Consulte o andamento de sua manifesta&ccedil;&atilde;o:</td>
   </tr>
   
   <tr>
-    <td>Insira nº do registro aqui: 
+    <td>Insira o n&uacute;mero do registro aqui: 
       <label>
       <input name="txtConsulta" type="text" id="txtConsulta" size="40" />
       </label>
@@ -83,7 +81,7 @@ $registro = $_SESSION['vox_registro'];
   <tr>
     <td>   
 	<br />
-       <strong><a style="text-decoration:none; color:#006600" href="modo_manifestando.frm.php">Fazer uma manifestação!</a></strong>
+       <strong><a style="text-decoration:none; color:#006600" href="index.php">Fazer uma manifesta&ccedil;&atilde;o!</a></strong>
     </td>
   </tr>
 </table>
@@ -103,5 +101,6 @@ $registro = $_SESSION['vox_registro'];
 
   
 </table>
+</div>
 </body>
 </html>

@@ -21,6 +21,8 @@ class clsRelatorios
 			require_once("../controle/data.gti.php");
 			$man = new clsManifestacao();
 			$data = new gtiData();
+			$data_inicial = implode("-",array_reverse(explode("/",$data_inicial)));
+			$data_final = implode("-",array_reverse(explode("/",$data_final)));
 	
 			$con = new gtiConexao();
 			$con->gtiConecta();
@@ -45,32 +47,36 @@ class clsRelatorios
 									
 			foreach($tbl as $chave => $linha)
 			{				
-			
+				$i = 0;
 				$man->SetCodigo($linha['manifestacao_id']);
 				$man->ConsultarPorCodigo();
 			
-				$rel[$cont][0] = $cont + 1;		
-				$rel[$cont][1] = $data->ConverteDataBR($man->GetDataCriacao());
-				$rel[$cont][2] = utf8_decode($man->GetTipo());
+				$rel[$cont][$i++] = $cont + 1;
+				$rel[$cont][$i++] = $man->GetCodigo();
+				$rel[$cont][$i++] = $data->ConverteDataBR($man->GetDataCriacao());
+				$rel[$cont][$i++] = utf8_decode($man->GetTipo());
 				
 				switch ($man->GetIdentificacao())
 				{
 					case 'S':
-						$rel[$cont][3] = 'Sigiloso';
+						$rel[$cont][$i++] = 'Sigiloso';
+						$rel[$cont][$i++] = utf8_decode($man->GetNome());
 					break;
 					case 'I':
-						$rel[$cont][3] = 'Identificado';
+						$rel[$cont][$i++] = 'Identificado';
+						$rel[$cont][$i++] = utf8_decode($man->GetNome());
 					break;
 					default:
-						$rel[$cont][3] = 'Anônimo';
+						$rel[$cont][$i++] = 'Anônimo';
+						$rel[$cont][$i++] = utf8_decode('N&atilde;o Informado');
 					break;
 										
 				}
 				 
-				$rel[$cont][4] = utf8_decode($man->GetAssunto());
-				$rel[$cont][5] = utf8_decode($man->GetDepartamentosSimples());
-				$rel[$cont][6] = utf8_decode($man->GetClientela());
-				$rel[$cont][7] = utf8_decode($man->GetStatus());
+				$rel[$cont][$i++] = utf8_decode($man->GetAssunto());
+				$rel[$cont][$i++] = utf8_decode($man->GetDepartamentosSimples());
+				$rel[$cont][$i++] = utf8_decode($man->GetClientela());
+				$rel[$cont][$i++] = utf8_decode($man->GetStatus());
 				
 				$cont++;
 			}
@@ -83,7 +89,11 @@ class clsRelatorios
 	public function TotalPorIdentificacao($data_inicial, $data_final)
 	{
 		$forma = "I";
-		// IDENTIFICADOS	
+		// IDENTIFICADOS
+		
+		$data_inicial = implode("-",array_reverse(explode("/",$data_inicial)));
+		$data_final = implode("-",array_reverse(explode("/",$data_final)));
+		
 		$SQL = 'SELECT 
 					count(manifestacao_id) as total_ident 
 				FROM 
@@ -170,6 +180,9 @@ class clsRelatorios
 		$con->gtiConecta();
 		$depto = $con->gtiPreencheTabela($SQL);
 		
+		$data_inicial = implode("-",array_reverse(explode("/",$data_inicial)));
+		$data_final = implode("-",array_reverse(explode("/",$data_final)));
+		
 		$cont=0;
 		
 		foreach($depto as $chave => $linha1)
@@ -240,6 +253,9 @@ class clsRelatorios
 		$con = new gtiConexao();
 		$con->gtiConecta();
 		$depto = $con->gtiPreencheTabela($SQL);
+		
+		$data_inicial = implode("-",array_reverse(explode("/",$data_inicial)));
+		$data_final = implode("-",array_reverse(explode("/",$data_final)));
 		
 		$cont=0;
 		

@@ -17,11 +17,7 @@ switch ($metodo)
 				
 			$manifestacao = new clsManifestacao();
 			$codigo = $manifestacao->PegaCodManifestacaoPorRegAndamento($reg_andamento);
-			if($manifestacao->VerificaRespondida($reg_andamento)==true)
-			{
-				echo '<br><strong>'.htmlentities('Essa manifestação já foi respondida!').'</strong>';
-				die;
-			}		
+
 						
 			if (trim($codigo) == '')
 			{
@@ -75,7 +71,7 @@ switch ($metodo)
 					<td><strong>Email:</strong> '. $manifestacao->GetEmail() .'</td>
 				  </tr>
 				  <tr>
-					<td><strong>Data de envio da manifesta&ccedil;&atilde;o:</strong> '. $data->ConverteDataBR($manifestacao->GetDataCriacao()) .'</td>
+					<td><strong>Data de envio da manifesta&ccedil;&atilde;o:</strong> '. $data->ConverteDataBR($manifestacao->GetDataCriacao()) .' &agrave;s '.$manifestacao->GetDataHora().'</td>
 				  </tr>
 				  <tr>
 					<td><strong>Assunto:</strong> '. $manifestacao->GetAssunto() .' </td>
@@ -87,15 +83,19 @@ switch ($metodo)
 				  <tr>
 					<td><strong>Setores por onde a manifesta&ccedil;&atilde;o passou:</strong> '. $manifestacao->GetDepartamentos() .'<img src="../imagens/info.png" alt="" width="17" height="17" onmouseover="Tip(\'Legenda de Cores <br> Verde - Respondida <br> Amarelo - Aguardando resposta <br> Vermelho - Aguardando há mais de 05 dias\', BGCOLOR, \'#FFFFFF\')" onmouseout="UnTip()" /></td>
 				  </tr>
-				  <tr>
-				   <tr>
+				  <tr>';
+				if($manifestacao->VerificaRespondida($reg_andamento)==false)					
+				   echo '<tr>
 					<td><strong>Responder:</strong><br>
 					  <label>
+				   	  <input name="txtCodigo" type="hidden" value="'.$manifestacao->GetCodigo().'" />
 					  <textarea name="txtResposta" cols="50" rows="10" id="txtResposta"></textarea>
 					  <input name="btnResponder" type="submit" id="btnResponder" value="Enviar Resposta" />
 					</label></td>
-				  </tr>
-				  <tr>
+				  </tr>';
+				else 
+					echo '<tr><td><br><strong>Essa manifesta&ccedil;&atilde;o j&aacute; foi respondida</strong><br><br></td></tr>';
+			echo' <tr>
 		<td><strong>Respostas e Departamentos por onde esta manifesta&ccedil;&atilde;o j&aacute; passou</strong></td>
 	  </tr>
 				  <tr>
@@ -128,7 +128,7 @@ switch ($metodo)
 				  </tr>
 				  <br>
 				  <tr>
-					<td><strong>Data de envio da manifesta&ccedil;&atilde;o:</strong> '. $data->ConverteDataBR($manifestacao->GetDataCriacao()) .'</td>
+					<td><strong>Data de envio da manifesta&ccedil;&atilde;o:</strong> '. $data->ConverteDataBR($manifestacao->GetDataCriacao()) .' &agrave;s '.$manifestacao->GetDataHora().'</td>
 				  </tr>
 				  <tr>
 					<td><strong>Assunto:</strong> '. $manifestacao->GetAssunto() .' </td>
@@ -143,6 +143,7 @@ switch ($metodo)
 				<tr>
 					<td><strong>Responder:</strong><br>
 					  <label>
+					  <input name="txtCodigo" type="hidden" value="'.$manifestacao->GetCodigo().'" />
 					  <textarea name="txtResposta" cols="50" rows="10" id="txtResposta"></textarea>
 					  <input name="btnResponder" type="submit" id="btnResponder" value="Enviar Resposta" />
 					</label></td>
@@ -179,7 +180,7 @@ switch ($metodo)
 					<td><strong>Raz&atilde;o do anonimato:</strong> '. $manifestacao->GetAnonimato() .' </td>
 				  </tr>
 				  <tr>
-					<td><strong>Data de envio da manifesta&ccedil;&atilde;o:</strong> '. $data->ConverteDataBR($manifestacao->GetDataCriacao()) .'</td>
+					<td><strong>Data de envio da manifesta&ccedil;&atilde;o:</strong> '. $data->ConverteDataBR($manifestacao->GetDataCriacao()) .' &agrave;s '.$manifestacao->GetDataHora().'</td>
 				  </tr>
 				  <tr>
 					<td><strong>Assunto:</strong> '. $manifestacao->GetAssunto() .' </td>
@@ -190,17 +191,21 @@ switch ($metodo)
 				  '.$feedback.'
 				  <tr>
 					<td><strong>Setores por onde a manifesta&ccedil;&atilde;o passou:</strong> '. $manifestacao->GetDepartamentos() .'<img src="../imagens/info.png" alt="" width="17" height="17" onmouseover="Tip(\'Legenda de Cores <br> Verde - Respondida <br> Amarelo - Aguardando resposta <br> Vermelho - Aguardando há mais de 05 dias\', BGCOLOR, \'#FFFFFF\')" onmouseout="UnTip()" /></td>
-				  </tr>
-				  <tr>
-					<td><strong>Responder:</strong><br>
-					  <label>
-					  <textarea name="txtResposta" cols="50" rows="10" id="txtResposta"></textarea>
+				  </tr>';
+				if($manifestacao->VerificaRespondida($reg_andamento)==true)
+				{
+				  echo '<tr>
+					<td>
+					  <label><br><strong>Essa manifesta&ccedil;&atilde;o j&aacute; foi respondida.</strong></td></tr>';					
+				}
+				else
+					echo '<tr><td><strong>Responder:</strong><br><textarea name="txtResposta" cols="50" rows="10" id="txtResposta"></textarea>
 					  <input name="btnResponder" type="submit" id="btnResponder" value="Enviar Resposta" />
-					</label></td>
-					<tr>
-		<td><strong>Respostas e Departamentos por onde esta manifesta&ccedil;&atilde;o j&aacute; passou</strong></td>
-	  </tr>
-				  <tr>
+					</label></td></tr>';
+				echo '<tr>
+						<td><strong>Respostas e Departamentos por onde esta manifesta&ccedil;&atilde;o j&aacute; passou</strong></td>
+					  </tr>
+								  <tr>
 <td>
 	<table width="100%" border="1" class="style23">
 		  <tr>

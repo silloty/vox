@@ -124,6 +124,21 @@ else
                                     <td  height="36"><b>&nbsp;&nbsp;&nbsp;MANIFESTA&Ccedil;&Otilde;ES EM ABERTO <span class="style22">(clique em VER para visualizar detalhes da manifesta&ccedil;&atilde;o)</span></b></td>
                                   </tr>
                                   <tr>
+                                      <td>                                        
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                          <tr>
+                                            <td width="3%"></td>
+                                            <td width="94%">									            
+									            <input type="Text" id="txtFiltro" name="txtFiltro">
+												<input name="btnFiltrar" type="Button" id="btnFiltrar" onclick="Filtrar()" value="Filtrar">	
+												&nbsp;por:<input type="radio" name="txtTipoFiltro" id="txtTipoFiltro" value="nome">Nome<input type="radio" id="txtTipoFiltro" name="txtTipoFiltro" value="assunto" checked="checked">Assunto											
+											</td>
+                                            <td width="3%">&nbsp;</td>
+                                          </tr>
+                                        </table>                                        
+                                       </td>
+                                  </tr>
+                                  <tr>
                                     <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                                       <tr>
                                         <td height="178">
@@ -134,7 +149,7 @@ else
                                             <td width="94%">
  
 										
-														<div id="grid" height="300px" style="background-color:white;overflow:hidden"></div>                                            </td>
+														<div id="grid" height="330px" style="background-color:white;overflow:hidden"></div>                                            </td>
                                             <td width="3%">&nbsp;</td>
                                           </tr>
                                         </table>                                        </td>
@@ -159,11 +174,11 @@ else
 									
 											grid = new dhtmlXGridObject('grid');
 											grid.setImagePath("imagens/datagrid/");
-											grid.setHeader("C\u00f3digo, Assunto, Clientela, Tipo, Identificacao, Data, ");
-											grid.setInitWidths("60,*,130,70,90,80,30");
-											grid.setColAlign("center, right, center, center, center, center, center");
-											grid.setColTypes("ro,ro,ro,ro,ro,ro,link");
-											grid.setColSorting("str,str,str,str,str,str,str");
+											grid.setHeader("C\u00f3digo, Assunto, Clientela, Tipo, Identificacao, Data, Viu,");
+											grid.setInitWidths("60,*,100,70,90,70,30,30");
+											grid.setColAlign("center, right, center, center, center, left, center");
+											grid.setColTypes("ro,ro,ro,ro,ro,ro,ro,link");
+											grid.setColSorting("int,str,str,str,str,str,str,str");
 											grid.enablePaging(true,15,5,"pagingArea",true,"recinfoArea");
       										grid.enableKeyboardSupport(true);											
 											grid.enableDragAndDrop("false");
@@ -172,6 +187,26 @@ else
 											grid.setSkin("light");
 											grid.loadXML("abertas.exe.php?metodo=carregagrid&codigo=");
 										</script>
+								<script>
+						
+											function Filtrar()
+											{
+												var valor;
+												valor = document.getElementById("txtFiltro").value;
+												var tipo_filtro = document.getElementsByName("txtTipoFiltro");
+												for (var i = 0, length = tipo_filtro.length; i < length; i++) {
+												    if (tipo_filtro[i].checked) {								    
+												        tipo_filtro = tipo_filtro[i].value;
+												        break;
+												    }
+												}
+												grid.init();
+												grid.loadXML("abertas.exe.php?metodo=filtrar&valor="+valor+"&tipo_filtro="+tipo_filtro);
+											
+											}
+								
+																													
+								</script>
                         
                         
                         
@@ -182,7 +217,7 @@ else
                         <td>&nbsp;                            </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style23">Sistema de Ouvidoria - VOX / IFMG - Campus Bambu&iacute;</span></td>
+                        <td bgcolor="#68B92C" valign="middle" align="center" class="rodape"><span class="style23">Sistema de Ouvidoria - VOX / <?php echo $config->GetNomeInstituicao();?></span></td>
                   </tr>
                     <tr>
                         <td bgcolor="Silver" valign="middle" align="center" class="barra">
