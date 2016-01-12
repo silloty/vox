@@ -438,11 +438,12 @@ class clsManifestacao
 					, \''.$this->assunto.'\', \''.$this->conteudo.'\'
 					, '.$this->clientela.', \''.$this->registro.'\' 
 					, \''.$this->anonimato.'\', \''.$this->data_criacao.'\'
-					,'.$this->status.', \''.$this->endereco.'\', now(), false);';
+					,'.$this->status.', \''.$this->endereco.'\', now(), false) RETURNING manifestacao_id;';
 					
 					
 					
-		$con->gtiExecutaSQL($SQL);		
+		//$con->gtiExecutaSQL($SQL);	 
+ 		$dados = $con->gtiPreencheTabela($SQL);	
 		
 		/* COMENTADO DEVIDO A Leíse não achar que o primeiro 
 		departamento que a manifestação passa seja ouvidoria
@@ -472,6 +473,7 @@ class clsManifestacao
     <td><p align="center">--------------------------------------------------------------------------------------------------------------------------</p>
     <p align="justify">Caro manifestante, o '.utf8_encode($config->GetNomeInstituicao()).' agradece a sua manifesta&ccedil;&atilde;o. Suas considera&ccedil;&otilde;es foram imediatamente remetidas a nosso departamento de ouvidoria e ser&atilde;o analisadas por nosso(a) ouvidor(a). Para ter acesso ao andamento de sua manifesta&ccedil;&atilde;o entre com o seguinte n&uacute;mero <span style="font-size: large;	color: #FF0000;	font-weight: bold;">'.$this->registro.'</span> na nossa p&aacute;gina de acompanhamento <a href="'.$config->GetRaiz().'/visao/consulta.frm.php" target="_blank">'.$config->GetRaiz().'/visao/consulta.frm.php</a>.</p>
     <p align="justify">Assim que a sua manifesta&ccedil;&atilde;o for analisada e tiver uma resposta, cujo prazo é de 20 dias, prorrogáveis por mais 10 dias, um segundo email sera enviado para esta caixa de mensagem. A ouvidoria agradece a sua participa&ccedil;&atilde;o no crescimento de nossa institui&ccedil;&atilde;o.</p>
+	<p align="justify">C&oacute;digo da Manifesta&ccedil;&atilde;o: '.$dados->fields["manifestacao_id"].'</p>
     <p align="center">--------------------------------------------------------------------------------------------------------------------------</p>
     </td>
   </tr>
@@ -1298,9 +1300,9 @@ FROM
 				
 			}
 		} 	
-		
+		$resposta_final = anti_injection($this->resposta_final);
 		$SQL = 'UPDATE manifestacao SET 
-        resposta_final=\''.$this->resposta_final.'\', 
+        resposta_final=\''.$resposta_final.'\', 
         data_finalizacao=now(),
 		ref_status=3 
         WHERE 
@@ -1309,7 +1311,7 @@ FROM
 		if ($resposta1!='')
 		{
 			 $SQL = 'UPDATE manifestacao SET 
-        resposta_final=\''.$resposta1 .' '. $this->resposta_final.'\', 
+        resposta_final=\''.$resposta1 .' '. $resposta_final.'\', 
         data_finalizacao=now(),
 		ref_status=3 
         WHERE 

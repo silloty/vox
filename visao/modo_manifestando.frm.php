@@ -138,7 +138,7 @@ a:active {
   </tr>
   
   <tr>
-    <td class="labelTextos">CPF:</td>
+    <td class="labelTextos">CPF**:</td>
     <td><input name="txtCPF" type="text" class="caixaDadosElegante" id="txtCPF" onKeyUp="soNumeros(this);" size="30" maxlength="11" value="<?php echo $_SESSION['vox_cpf'];?>"/>
     *</td>
   </tr>
@@ -155,7 +155,9 @@ a:active {
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><div align="right" class="style26 style34"><span class="style35">* Somente números</span> </div></td>
+    <td><div align="right" class="style26 style34"><span class="style35">* Somente números</span> </div>
+    	<div align="right" class="style26 style34"><span class="style35">** Campos Opcionais</span> </div>
+    </td>
   </tr>
   </table>
   </span>

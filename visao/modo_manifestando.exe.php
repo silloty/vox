@@ -1,4 +1,4 @@
-﻿﻿<?php
+﻿﻿﻿<?php
 session_start();
 
 if (isset($_POST['txtMetodo']))
@@ -72,8 +72,10 @@ switch ($metodo)
 			$valida->ValidaCampoRequerido($nome,'nome');
 			$valida->ValidaCampoRequerido($telefone,'telefone');
 			$valida->ValidaCampoNumericoInteiro($telefone,'telefone');
-			$valida->ValidaCampoRequerido($cpf,'cpf');
-			$valida->ValidaCPF($cpf,'cpf');
+			if ($cpf != '')
+				$valida->ValidaCPF($cpf,'cpf');
+			else
+				$cpf = "Não Informado";
 			$valida->ValidaCampoRequerido($endereco,'endereco');
 		}
 										
