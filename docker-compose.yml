@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: vox-nginx
+    ports:
+      - "8001:80"
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/html
+    depends_on:
+      - php
+    networks:
+      - vox-network
+
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: vox-php
+    volumes:
+      - ./src:/var/www/html
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - vox-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: vox-postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME:-vox}
+      POSTGRES_USER: ${DB_USER:-usrvox}
+      POSTGRES_PASSWORD: ${DB_PASS:-vox2024!}
+    ports:
+      - "5433:5432"
+    volumes:
+      - vox-pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-usrvox} -d ${DB_NAME:-vox}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - vox-network
+
+volumes:
+  vox-pgdata:
+
+networks:
+  vox-network:
+    driver: bridge
