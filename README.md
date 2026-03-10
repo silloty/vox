@@ -55,11 +55,23 @@ O **VOX** é um sistema moderno de gestão de ouvidoria, desenvolvido originalme
 
 ---
 
-## 👨‍💻 Créditos e Mantenedores
+## � Registro INPI
+O sistema VOX possui registro de programa de computador junto ao **Instituto Nacional da Propriedade Industrial (INPI)**:
 
-- **Desenvolvedor Original:** Silas Antônio Cereda da Silva
+- **Nº do Pedido:** BR 51 2013 000695 3
+- **Data do Depósito:** 08/07/2013
+- **Título:** VOX - SISTEMA DE OUVIDORIA
+- **Titulares:** FAPEMIG / Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais (IFMG)
+- **Autores:** Silas Antônio Cereda da Silva, Ciniro Aparecido Leite Nametala, Wanderson Santiago dos Reis.
+
+---
+
+## �👨‍💻 Créditos e Mantenedores
+
+- **Desenvolvedor Original & Autor Principal:** Silas Antônio Cereda da Silva
+- **Autores Co-desenvolvedores:** Ciniro Aparecido Leite Nametala, Wanderson Santiago dos Reis
 - **Instituição:** CGTI IFMG Campus Bambuí
-- **Refatorado em 2026:** Silas A C Silva e AI (Google Deepmind)
+- **Refatorado em 2026:** Silas A C Silva e Antigravity AI (Google Deepmind)
 
 ---
 © 2026 VOX - Sistema de Ouvidoria Digital
