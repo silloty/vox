@@ -59,7 +59,7 @@ O **VOX** é um sistema moderno de gestão de ouvidoria, desenvolvido originalme
 
 - **Desenvolvedor Original:** Silas Antônio Cereda da Silva
 - **Instituição:** CGTI IFMG Campus Bambuí
-- **Modificado por:** Antigravity AI (Google Deepmind)
+- **Refatorado em 2026:** Silas A C Silva e AI (Google Deepmind)
 
 ---
 © 2026 VOX - Sistema de Ouvidoria Digital
