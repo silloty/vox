@@ -165,7 +165,6 @@ INSERT INTO clientela (nome) VALUES
     ('Fornecedor'),
     ('Outro');
 
--- Usuário administrador padrão (senha: admin123)
--- A senha será re-hashada na primeira execução do sistema
-INSERT INTO usuario (login, senha, nome) VALUES 
-    ('admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrador');
+-- O usuário administrador não é criado aqui.
+-- docker/postgres/02-create-admin.sh lê ADMIN_LOGIN, ADMIN_NAME e
+-- ADMIN_PASSWORD na primeira inicialização do volume.

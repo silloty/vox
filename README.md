@@ -35,23 +35,30 @@ O **VOX** é um sistema moderno de gestão de ouvidoria, desenvolvido originalme
    ```
 
 2. **Configure o ambiente:**
-   Copie o arquivo de exemplo e ajuste as variáveis se necessário:
    ```bash
    cp .env.example .env
    ```
+   Edite o `.env` antes de subir os containers. Não há senha padrão versionada.
+   - `DB_PASS`: senha do PostgreSQL. O Compose recusa iniciar se ela estiver vazia.
+   - `ADMIN_PASSWORD`: senha inicial do administrador (12 a 72 bytes). Se ficar vazia, a primeira criação do banco gera uma senha aleatória e a grava somente dentro do volume, em `/var/lib/postgresql/data/.vox-initial-admin-password`.
+   - `ADMIN_LOGIN`: login inicial (o exemplo usa `admin`). É um identificador, não uma senha.
 
 3. **Suba os containers:**
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
+   O comando legado `docker-compose up -d` também lê o mesmo arquivo. O script de administrador roda apenas quando o volume do Postgres é criado. Um volume que já existe mantém a senha do banco e os usuários atuais. Para recomeçar do zero (apaga os dados locais): `docker compose down -v`.
 
 4. **Acesse a aplicação:**
    - Portal Público: [http://localhost:8001](http://localhost:8001)
    - Portal Administrativo: [http://localhost:8001/login](http://localhost:8001/login)
 
-### 🔐 Credenciais Padrão (Ambiente de Teste)
-- **Usuário:** `admin`
-- **Senha:** `admin`
+5. **Entre e troque a senha inicial.** Se `ADMIN_PASSWORD` ficou vazia, leia a senha gerada uma vez e apague o arquivo:
+   ```bash
+   docker exec vox-postgres cat /var/lib/postgresql/data/.vox-initial-admin-password
+   docker exec vox-postgres rm -f /var/lib/postgresql/data/.vox-initial-admin-password
+   ```
+   No painel, abra **Usuários** e defina uma senha nova. Não reutilize a senha inicial, principalmente fora da máquina de desenvolvimento.
 
 ---
 
